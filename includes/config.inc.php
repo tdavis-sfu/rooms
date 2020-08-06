@@ -15,8 +15,8 @@ $configInfos["localhost"]["vendor"] = '/Users/tjdavis/sfuvault/Sites/contracts/v
 $configInfos["localhost"]["templates"] = '/Users/tjdavis/sfuvault/Sites/contracts/rooms/templates';
 
 $configInfos["localhost"]["host"] = 'vpr-db12.dc.sfu.ca';
-$configInfos["localhost"]["user"] = 'roombooking';
-$configInfos["localhost"]["pass"] = 'rilinc';
+$configInfos["localhost"]["user"] = 'trevormon';
+$configInfos["localhost"]["pass"] = 'ilike!pasta&pizza33%';
 $configInfos["localhost"]["dbdriver"] = 'mysqli';
 $configInfos["localhost"]["dbname"] = 'roombooking';
 $configInfos["localhost"]["peardir"] = '/usr/lib/php';
