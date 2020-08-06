@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="phone.css" >	  
+
+	</head>
+
+<body>
+
+	<form name='theform' action='/rooms/lookup.php' method='get'>
+		<select name='faculty_id' onchange='javascript: document.theform.submit();'>
+			{% autoescape false %}
+			{{ foptions }}
+			{% endautoescape %}
+		</select>
+		Faculty<br>
+		{% if boptions %}
+		<select name='building_id' onchange='javascript:document.theform.submit();'>
+			<option value=''></option>
+			{% autoescape false %}
+			{{ boptions }}
+			{% endautoescape %}
+		</select>
+		Building<br>
+		{% endif %}
+		
+		{% if roptions %}
+		<select name='room_id' onchange='javascript:document.theform.submit();'>
+			<option value=''></option>
+			{% autoescape false %}
+			{{ roptions }}
+			{% endautoescape %}
+		</select>
+		Room<br><br>
+		{% endif %}
+	</form>
+		
+		{% if not roominfo and sroom %}
+		Room not found
+		{% elseif roominfo and sroom %}
+		<table cellpadding='0' cellspacing='1'>
+			<tr><td>Room Area:</td><td>{{ roominfo.area }}</td></tr>
+			<tr><td>Capacity:</td><td>{{ roominfo.capacity }}</td></tr>
+			<tr><td>Description:</td><td>{{roominfo.std_descript }}</td></tr>
+			<tr><td>Type:</td><td>{{ roominfo.type_descript }}</td></tr>
+			<tr><td>Plan Status:</td><td>
+				{% if roominfo.plan_status==0 %}
+				<font color='red'>No Plan</font>
+				{% elseif roominfo.plan_status==1 %}
+				Approved
+				{% else %}
+				N/A
+				{% endif %}
+			</td></tr>
+			<tr><td>Inspections</td><td>
+				{% if inspections is empty %}
+					No Inspections
+				{% else %}
+					{% for ins in inspections %}
+						<a href='/rooms/inspect_view.php?inspect={{ ins.id }}'>{{ ins.datetime }}
+						{% if ins.status %}
+						Passed
+						{% else %} 
+						Failed
+						{% endif %}
+						</a><br>
+					{% endfor %}
+				{% endif %}
+				</td></tr>
+			</table>
+			<table>
+				<form name='inspectme' action='/rooms/inspect.php' id='inspectme' method='GET'>
+					<input type='hidden' name='status' value='new'/> 
+					<input type='hidden' name='room_id' value='{{ sroom }}'/>
+					<button type='submit' form='inspectme' value='Submit'>Inspect</button>
+				</form>
+			</table>
+				
+		{% endif %}
+		
+
+</body>
+</html>

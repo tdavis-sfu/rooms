@@ -1,0 +1,113 @@
+
+<html>	
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="phone.css" >	  
+
+</head>
+
+<body>
+
+<form name='inputform' action='/rooms/inspect.php?saveform' method='get'>
+<input type='hidden' name='room_id' value='{{ var.room_id }}'/>
+<div id='box'>	
+	<div class='boxrow'>
+		<div id='resp-table'>
+			<div id='resp-table-body'>
+				<div class='row' >
+					<div class='cell'>
+						{% if err %}
+						{{ err }}
+						{% elseif not var.room %}
+						Room not found....<br>
+						{% else %}
+						<div id='resp-table'>
+							<div id='resp-table-body'>
+								<div class='row' >
+									<div class='cellnarrow'>Room:</div><div class='cellnarrow'>{{ var.room }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Building:</div><div class='cellnarrow'>{{ var.building_name }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Faculty:</div><div class='cellnarrow'>{{ var.faculty_name }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Supervisor:</div><div class='cellnarrow'>{{ var.supervisor }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Inspector:</div><div class='cellnarrow'>{{ var.inspector }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Date Inspected:</div><div class='cellnarrow'>{{ var.date }}</div>
+								</div>
+							</div>
+						</div>
+				   		{% endif %}
+		   			</div>
+		   		</div>
+			</div>
+		</div>
+	</div>
+
+	{% if questions %}
+	<div class='boxrow'>
+		<div id='resp-table'>
+			<div id='resp-table-body' class='container'>
+			
+				{% for question in questions %}
+				<div class='row'>
+					<div class='cell'>{{ question.number }}</div>
+					<div class='cell'>{{ question.question }}</div>
+					<div class='cell'><input type='checkbox' name='{{ question.number }}'></div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class='boxrow'>
+		<div id='resp-table'>
+			<div id='resp-table-body' class='container'>
+				<div class='row'>
+					<div class='cellwide' >
+					<b>Comments</b>
+						<div class='cellwide' >
+						
+						<textarea name='comments' class='boxsizingBorder' rows='8'></textarea>
+						
+						</div>
+					</div>
+				</div>
+			   <div class='row'>
+			   		<div class='cellwide'>
+			   		<b>Actions</b>
+			   			<div class='cellwide'>
+			   			<textarea name='actions' class='boxsizingBorder' rows='8'></textarea>
+			   			</div>
+			   		</div>
+			   </div>
+			   <div class='row'>
+			   		<div class='cell'>
+			   		<b>Pass:</b> <input type='radio' name='decision' value='1'/> <b>Fail:</b> <input type='radio' name='decision' value='0' checked='true'/>
+			   		</div>
+			   </div>
+			   <div class='row'>
+			   		<div class='cell padding' >
+			   		<button type='submit'><b>Submit Form</b></button>
+			   		</div>
+			   	</div>
+			   	<input type='hidden' name='status' value='save'/>	
+			   		   
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	
+</div>
+</form>
+</body>
+</html>

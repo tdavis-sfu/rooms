@@ -1,0 +1,102 @@
+
+<html>	
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="phone.css" >	  
+
+</head>
+
+<body>
+
+<div id='box'>
+	<div class='boxrow'>
+		<div id='resp-table'>
+			<div id='resp-table-body'>
+				<div class='row' >
+					<div class='cell'>
+						{% if err %}
+						{{ err }}
+						{% elseif not var.room %}
+						Room not found....<br>
+						{% else %}
+						<div id='resp-table'>
+							<div id='resp-table-body'>
+								<div class='row' >
+									<div class='cellnarrow'>Room:</div><div class='cellnarrow'>{{ var.room }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Building:</div><div class='cellnarrow'>{{ var.building_name }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Faculty:</div><div class='cellnarrow'>{{ var.faculty_name }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Supervisor:</div><div class='cellnarrow'>{{ var.supervisor }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Inspector:</div><div class='cellnarrow'>{{ var.inspector }}</div>
+								</div>
+								<div class='row' >
+									<div class='cellnarrow'>Date Inspected:</div><div class='cellnarrow'>{{ var.date }}</div>
+								</div>
+							</div>
+						</div>
+				   		{% endif %}
+		   			</div>
+		   		</div>
+			</div>
+		</div>
+	</div>
+	{% if questions %}
+	<div class='boxrow'>
+		<div id='resp-table'>
+			<div id='resp-table-body' class='container'>
+				{% for question in questions %}
+				<div class='row'>
+					<div class='cell'>{{ question.number }}</div>
+					<div class='cell'>{{ question.question }}</div>
+					<div class='cell'>
+					{% if question.stat == 'No' %}
+					<font color='red'>{{ question.stat }}</font>
+					{% else %}
+					{{ question.stat }}
+					{% endif %}
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class='boxrow'>
+		<div id='resp-table'>
+			<div id='resp-table-body' class='container'>
+				<div class='row'>
+					<div class='cell'>
+					<b>Comments</b>
+						<div class='cell'>
+						{{ var.comments }}
+						</div>
+					</div>
+				</div>
+			   <div class='row'>
+			   		<div class='cell'>
+			   		<b>Actions</b>
+			   			<div class='cell'>
+			   			{{ var.actions }}
+			   			</div>
+			   		</div>
+			   </div>
+			   <div class='cell'>
+			   <b>Decision:</b> {{ var.status }}	
+			   </div>		   
+			</div>
+		</div>
+	</div>
+	{% endif %}
+</div>
+</body>
+</html>

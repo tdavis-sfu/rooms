@@ -1,0 +1,111 @@
+
+	  table { 
+		  
+		  border-collapse: collapse; 
+		}
+		/* Zebra striping */
+		tr:nth-of-type(odd) { 
+		  background: #eee; 
+		}
+		th { 
+		  background: #333; 
+		  color: white; 
+		  font-weight: bold; 
+		}
+		td, th { 
+		  padding: 6px; 
+		  border: 1px solid #ccc; 
+		  text-align: left; 
+		}
+		
+	.boxsizingBorder {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100%;
+}	
+	.textareaContainer {
+		display: block;
+		border: 3px solid #38c;
+		padding: 10px;
+	}
+		
+	#resp-table {
+		
+		display: table;
+		border-collapse:separate;
+		width: inherit;
+		border-collapse: collapse;
+		
+		
+	}
+	#resp-table-body{
+		display: table-row-group;
+		width: inherit;
+	}
+	#box{
+		width: 100%;
+		display: table;
+	}
+	.boxrow{
+		width: inherit;
+	}
+	.row{
+		display: table-row;
+	}
+	
+	div.container>div:nth-of-type(odd) {
+		background: #e0e0e0;
+	}
+	.padding {
+
+		border-spacing: 20px;
+		padding-top:20px;
+		padding-left: 40px;
+
+	}
+	.cell{
+		display: table-cell;
+		min-width: 40px;
+		padding: 6px; 
+		border: 1px solid #ccc; 
+		text-align: left;
+		width:inherit;
+		}
+	.cellwide{
+		display: table-cell;
+		min-width: 380px;
+		padding: 6px; 
+		border: 1px solid #ccc; 
+		text-align: left;
+		width:100%;
+		
+	}
+	.cellnarrow{
+		display: table-cell;
+		min-width: 40px;
+		padding: 2px; 
+		/*border: 1px solid #ccc; */
+		text-align: left;
+		width:inherit;
+	}
+	.bordered{
+		
+	}
+
+	
+	div.colspan,
+div.colspan+div.cell {
+  border: 0;
+}
+
+div.colspan>div {
+  width: 1px;
+}
+
+div.colspan>div>div {
+  position: relative;
+  width: 99px;
+  overflow: hidden;
+}
+
