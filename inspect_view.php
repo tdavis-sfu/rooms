@@ -29,7 +29,7 @@
 	   else {
 		   $room=$db->GetRow("SELECT * from user_room WHERE id=$form[room_id]");
 		   if(!empty($room)) {
-			   $sql="SELECT user_building.name as building_name, facultyadmin_faculty.full_name as faculty_name, user_room.short_name as room from user_room LEFT JOIN user_building ON (user_room.building_id=user_building.id) LEFT JOIN facultyadmin_faculty ON (user_room.faculty_id=facultyadmin_faculty.id) WHERE user_room.id='$form[room_id]'";
+			   $sql="SELECT user_building.name as building_name, user_faculty.full_name as faculty_name, user_room.short_name as room from user_room LEFT JOIN user_building ON (user_room.building_id=user_building.id) LEFT JOIN user_faculty ON (user_room.faculty_id=facultyadmin_faculty.id) WHERE user_room.id='$form[room_id]'";
 			   $result=$db->GetRow($sql);
 			   if($result){
 			   		$var['building_name']=$result['building_name'];

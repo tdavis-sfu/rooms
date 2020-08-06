@@ -11,12 +11,12 @@
    if(isset($_REQUEST['building_id'])) $sbuilding=$_REQUEST['building_id']; else $sbuilding='';
    if(isset($_REQUEST['room_id'])) $sroom=$_REQUEST['room_id']; else $sroom='';
    
-   $sql="SELECT * FROM facultyadmin_faculty where name !='' order by full_name";
+   $sql="SELECT * FROM user_faculty where name !='' order by full_name";
    $facultylist=$db->GetAll($sql);
    
    //If just the room was specifided then look up the other data.
    if($sroom !='' && $sbuilding==''){
-	   $sql="SELECT user_building.id as building_id, facultyadmin_faculty.id as faculty_id from user_room LEFT JOIN user_building ON (user_room.building_id=user_building.id) LEFT JOIN facultyadmin_faculty ON (user_room.faculty_id=facultyadmin_faculty.id) WHERE user_room.id='$sroom'";
+	   $sql="SELECT user_building.id as building_id, user_faculty.id as faculty_id from user_room LEFT JOIN user_building ON (user_room.building_id=user_building.id) LEFT JOIN user_faculty ON (user_room.faculty_id=facultyadmin_faculty.id) WHERE user_room.id='$sroom'";
 	   $result=$db->GetRow($sql);
 
 	   if($result){
@@ -84,6 +84,7 @@ echo $template->render([
 	'roptions'=>$roptions,
 	'roominfo'=>$roominfo,
 	'inspections'=>$inspections,
+	'havesearched'=>$havesearched,
 	'err'=>$err]);
 ?>
   
