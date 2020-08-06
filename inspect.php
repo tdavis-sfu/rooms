@@ -64,7 +64,7 @@
 	}
    
    	if(isset($_REQUEST['status'])) if($_REQUEST['status']=='new' && isset($_REQUEST['room_id'])){
-		$sql="SELECT user_building.name as building_name, user_faculty.full_name as faculty_name, user_room.short_name as room from user_room LEFT JOIN user_building ON (user_room.building_id=user_building.id) LEFT JOIN user_faculty ON (user_room.faculty_id=facultyadmin_faculty.id) WHERE user_room.id='$_REQUEST[room_id]'";
+		$sql="SELECT user_building.name as building_name, user_faculty.full_name as faculty_name, user_room.short_name as room from user_room LEFT JOIN user_building ON (user_room.building_id=user_building.id) LEFT JOIN user_faculty ON (user_room.faculty_id=user_faculty.id) WHERE user_room.id='$_REQUEST[room_id]'";
 		$result=$db->GetRow($sql);
 		if($result){
 	   		$var['building_name']=$result['building_name'];
