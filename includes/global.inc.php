@@ -51,9 +51,16 @@ $twig = new \Twig\Environment($loader, []);
 
 require_once $configInfo["phpcas_path"] . '/CAS.php';
 phpCAS::setDebug();
+phpCAS::setVerbose(true);
 
+phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
+// For quick testing you can disable SSL validation of the CAS server.
+// THIS SETTING IS NOT RECOMMENDED FOR PRODUCTION.
+// VALIDATING THE CAS SERVER IS CRUCIAL TO THE SECURITY OF THE CAS PROTOCOL!
+phpCAS::setNoCasServerValidation();
 
-
+// force CAS authentication
+phpCAS::forceAuthentication();
 
 
 /**

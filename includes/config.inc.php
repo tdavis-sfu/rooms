@@ -27,6 +27,17 @@ $configInfos["localhost"]["vendor"] = '/var/www/html/rooms/vendor';
 $configInfos["localhost"]["templates"] = '/var/www/html/rooms/templates';
 $configInfos["localhost"]["phpcas_path"] = '/var/www/html/rooms/vendor/jasig/phpcas';
 
+$cas_host = 'cas.sfu.ca';
+
+// Context of the CAS Server
+$cas_context = '/cas';
+
+// Port of your CAS server. Normally for a https server it's 443
+$cas_port = 443;
+
+// Path to the ca chain that issued the cas server certificate
+$cas_server_ca_cert_path = '/path/to/cachain.pem';
+
 $configInfos["contracts.local"]["host"] = 'localhost';
 $configInfos["contracts.local"]["user"] = 'roombooking';
 $configInfos["contracts.local"]["pass"] = 'rilinc';
