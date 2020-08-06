@@ -25,7 +25,7 @@ $configInfos["localhost"]["url_root"] = 'http://vpr-db13.sfu.ca';
 $configInfos["localhost"]["file_root"] = '/var/www/html/rooms';
 $configInfos["localhost"]["vendor"] = '/var/www/html/rooms/vendor';
 $configInfos["localhost"]["templates"] = '/var/www/html/rooms/templates';
-$configInfos["localhost"]["phpcas_path"] = '/var/www/html/rooms/vendor/phpcas';
+$configInfos["localhost"]["phpcas_path"] = '/var/www/html/rooms/vendor/jasig/phpcas';
 
 $configInfos["contracts.local"]["host"] = 'localhost';
 $configInfos["contracts.local"]["user"] = 'roombooking';
