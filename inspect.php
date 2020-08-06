@@ -71,7 +71,7 @@
 	   		$var['faculty_name']=$result['faculty_name'];
 	   		$var['room']=$result['room'];
 	   		$var['supervisor']=$form['supervisor'];
-	   		$var['inspector']= $form['inspector'];
+	   		$var['inspector']= phpCAS::getUser();
 	   		$var['date']= $form['datetime'];
 	   		$var['room_id'] = $_REQUEST['room_id'];
 
