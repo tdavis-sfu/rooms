@@ -49,7 +49,8 @@ $loader = new \Twig\Loader\FilesystemLoader("$configInfo[templates]");
 //$twig = new \Twig\Environment($loader, ['cache' => "$configInfo[file_root]/cache"]);
 $twig = new \Twig\Environment($loader, []);
 
-
+require_once $configInfo["phpcas_path"] . '/CAS.php';
+phpCAS::setDebug();
 
 
 
