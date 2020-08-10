@@ -1,11 +1,9 @@
 <?php
 	require_once('includes/global.inc.php');
-	global $sessionConfig; 
+	global $configInfo; 
 	global $db;
 	$template = $twig->load('safety.twig');
-	echo"<pre>";
-	print_r($sessionConfig);
-	echo"</pre>";
+	
 	/*
 	$sql="SELECT * from safety_plans where building_id !=0";
 	$plans=$db->GetAll($sql);
@@ -183,7 +181,7 @@ echo $template->render([
 	'roptions'=>$roptions,
 	'roominfo'=>$roominfo,
 	'havesearched'=>$havesearched,
-	'config'=>$sessionConfig,
+	'config'=>$configInfo,
 	'safety'=>$safety,
 	'pi_options'=>$pi_options,
 	'contact_options'=>$contact_options,
