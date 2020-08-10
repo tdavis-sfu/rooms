@@ -4,11 +4,11 @@ require_once('includes/global.inc.php');
 
 	global $db;
 	
-	$sql="SELECT * from safety_plans where building_id !=0 && room_id != 0";
+	$sql="SELECT * from safety_plans where building_id !=0 && room_id = 0";
 	$plans=$db->GetAll($sql);
-	echo "<b>Errors in room identifiers</b><br><br>"
+	echo "<b>Errors in room identifiers</b><br><br>";
 	echo "<table>
-			<tr><th>ID</th><th>Room</th><th><th>Building</th><th>PI</th><th>Contact</th><th>Purpose</th></tr>\r";
+			<tr><th>ID</th><th>Room</th><th>Building</th><th>PI</th><th>Contact</th><th>Purpose</th></tr>\r";
 	foreach($plans as $plan){
 		
 		$building=$db->GetRow("select * from user_building where id = $plan[building_id]");
