@@ -4,9 +4,9 @@
 
 	global $db;
 	
-	echo"<pre>";
-	print_r($_SESSION); 
-	echo "</pre";
+	//echo"<pre>";
+	//print_r($_SESSION); 
+	//echo "</pre>";
 	$template = $twig->load('lookup.twig');
 
    if(isset($_REQUEST['faculty_id'])) $faculty=$_REQUEST['faculty_id']; else $faculty='';
