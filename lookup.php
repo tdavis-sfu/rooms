@@ -71,6 +71,9 @@
 					$sql="SELECT * FROM user_room LEFT JOIN `user_building` ON (user_room.building_id=user_building.id) WHERE faculty_id='$faculty' AND building_id='$sbuilding' AND user_room.id='$sroom'";
 				
 				$roominfo=$db->getRow($sql);
+				
+				$sql="SELECT * from safety_plans WHERE room_id=$sroom";
+				$safety=$db->GetRow($sql);
 
 				$sql="SELECT * FROM inspections WHERE room_id=$sroom order by datetime desc";
 				$inspections=$db->GetAll($sql);	
@@ -87,6 +90,7 @@ echo $template->render([
 	'roominfo'=>$roominfo,
 	'inspections'=>$inspections,
 	'havesearched'=>$havesearched,
+	'safety'=>$safety,
 	'config'=>$configInfo,
 	'err'=>$err]);
 ?>

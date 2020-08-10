@@ -49,12 +49,10 @@
 			<tr><td>Description:</td><td>{{roominfo.std_descript }}</td></tr>
 			<tr><td>Type:</td><td>{{ roominfo.type_descript }}</td></tr>
 			<tr><td>Plan Status:</td><td>
-				{% if roominfo.plan_status==0 %}
+				{% if safety is empty %}
 				<font color='red'>No Plan</font>
-				{% elseif roominfo.plan_status==1 %}
-				Approved
 				{% else %}
-				N/A
+				<b>Approved</b>
 				{% endif %}
 			</td></tr>
 			<tr><td>Inspections</td><td>
