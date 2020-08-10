@@ -4,9 +4,11 @@
 
 	global $db;
 	
+	echo"<pre>";
+	print_r($_SESSION); 
+	echo "</pre";
 	$template = $twig->load('lookup.twig');
 
-   global $db;
    if(isset($_REQUEST['faculty_id'])) $faculty=$_REQUEST['faculty_id']; else $faculty='';
    if(isset($_REQUEST['building_id'])) $sbuilding=$_REQUEST['building_id']; else $sbuilding='';
    if(isset($_REQUEST['room_id'])) $sroom=$_REQUEST['room_id']; else $sroom='';
@@ -85,6 +87,7 @@ echo $template->render([
 	'roominfo'=>$roominfo,
 	'inspections'=>$inspections,
 	'havesearched'=>$havesearched,
+	'config'=>$sessionConfig,
 	'err'=>$err]);
 ?>
   

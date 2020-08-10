@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="phone.css" >	  
+
+	</head>
+
+<body>
+
+	<form name='theform' action='{{ config.url_root }}/safety.php' method='get'>
+		<input type='hidden' name='repeat_id' value='{{ repeat_id }}'>
+		<select id='faculty_id' name='faculty_id' onchange='javascript: document.theform.submit();'>
+			{% autoescape false %}
+			{{ foptions }}
+			{% endautoescape %}
+		</select>
+		Faculty<br>
+		{% if boptions %}
+		<select name='building_id' onchange='javascript:document.theform.submit();'>
+			<option value=''></option>
+			{% autoescape false %}
+			{{ boptions }}
+			{% endautoescape %}
+		</select>
+		Building<br>
+		{% endif %}
+		
+		{% if roptions %}
+		<select name='room_id' onchange='javascript:document.theform.submit();'>
+			<option value=''></option>
+			{% autoescape false %}
+			{{ roptions }}
+			{% endautoescape %}
+		</select>
+		Room<br><br>
+		{% endif %}
+	</form>
+		
+		{% if not roominfo and sroom %}
+		Room not found
+		{% elseif roominfo and sroom %}
+	<form name='safetyform' action='{{ config.url_root }}/safety.php' method='GET'>
+		<table cellpadding='0' cellspacing='1'>
+			<tr><td>Room Area:</td><td>{{ roominfo.area }}</td></tr>
+			<tr><td>Capacity:</td><td>{{ roominfo.capacity }}</td></tr>
+			<tr><td>Description:</td><td>{{roominfo.std_descript }}</td></tr>
+			<tr><td>Type:</td><td>{{ roominfo.type_descript }}</td></tr>
+			<tr><td>Plan Status:</td><td>
+				{% if safety is empty %}
+				<font color='red'>No Plan</font>
+				{% else %}
+				<b>Approved</b>
+				{% endif %}
+			</td></tr>
+			<tr><td>PI:</td><td><select name='pi' id='pi'>
+															{% autoescape false %}
+															{{ pi_options }}
+															{% endautoescape %}
+															</select></td></tr>
+			<tr><td> &nbsp;Enter:</td><td><input type='text' name='pi_new' length='25'/></td></tr>
+			<tr><td>Contact:</td><td><select name='contact' id='contact'>
+															{% autoescape false %}
+															{{ contact_options }}
+															{% endautoescape %}
+															</select></td></tr>
+			<tr><td> &nbsp;Enter:</td><td><input type='text' name='contact_new' length='25'/></td></tr>
+			<tr><td>Plan Link:</td><td><input type='text' name='plan' id='plan' length='25' value='{{ safety.plan }}'/></td></tr>
+			<tr><td>Purpose</td><td><select name='purpose'>
+				{% autoescape false %}
+				{{ purpose_options }}
+				{% endautoescape %}
+
+			</select></td></tr>
+			<tr><td>Occupancy:</td><td><input type='text' name='occupancy' length='5'/ value='{{ safety.occupancy }}'></td></tr>
+			<tr><td colspan='2'>
+				<button type='submit' onClick="this.form.save.value='save'">Save Data</button>&nbsp;&nbsp;
+				{% if repeat_id is not empty %}
+				<input type='hidden' name='repeat_id' value='{{ repeat_id }}'>
+				<button type='submit' onClick="this.form.save.value='repeat'">Repeat Last</button>
+				{% endif %}
+			</td></tr>
+			</table>
+			<input type='hidden' name='save' value=''>
+			<input type='hidden' name='faculty_id' value='{{ faculty }}'>
+			<input type='hidden' name='room_id' value='{{ sroom }}'>
+			
+	</form>
+			
+				
+		{% endif %}
+		
+
+</body>
+</html>
