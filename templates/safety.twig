@@ -69,7 +69,11 @@
 															{% endautoescape %}
 															</select></td></tr>
 			<tr><td> &nbsp;Enter:</td><td><input type='text' name='contact_new' length='25'/></td></tr>
-			<tr><td>Plan Link:</td><td><input type='text' name='plan' id='plan' length='25' value='{{ safety.plan }}'/></td></tr>
+			<tr><td>Plan Link:</td><td><input type='text' name='plan' id='plan' length='25' value='{{ safety.plan }}'/>
+			{% if safety.plan %}
+			<br><a href="{{safety.plan}}">Safety Plan</a>
+			{% endif %}
+			</td></tr>
 			<tr><td>Purpose</td><td><select name='purpose'>
 				{% autoescape false %}
 				{{ purpose_options }}
