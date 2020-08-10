@@ -3,6 +3,9 @@
 	global $sessionConfig; 
 	global $db;
 	$template = $twig->load('safety.twig');
+	echo"<pre>";
+	print_r($sessionConfig);
+	echo"</pre>";
 	/*
 	$sql="SELECT * from safety_plans where building_id !=0";
 	$plans=$db->GetAll($sql);
