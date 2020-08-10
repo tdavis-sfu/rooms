@@ -1,6 +1,6 @@
 <?php
 	require_once('includes/global.inc.php');
-	global $sessionConfig; 
+	global $configInfo; 
 
 	global $db;
 	
@@ -87,7 +87,7 @@ echo $template->render([
 	'roominfo'=>$roominfo,
 	'inspections'=>$inspections,
 	'havesearched'=>$havesearched,
-	'config'=>$sessionConfig,
+	'config'=>$configInfo,
 	'err'=>$err]);
 ?>
   
