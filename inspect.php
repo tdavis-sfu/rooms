@@ -49,15 +49,19 @@
 		//echo mysqli_real_escape_string($db->_connectionID,$request['comments']);
 		//echo "<br>";
 		if(isset($request['comments'])) {
-			$r=mysqli_real_escape_string($db->_connectionID,$request['comments']); 
+			$r=addslashes($request['comments']); 
 			$sql.="comments='$r', ";
 		}
 		else $sql.="comments='', ";
-		if(isset($request['actions'])) $sql.="actions='$request[actions]', ";
+		
+		if(isset($request['actions'])) {
+			$r=addslashes($request['actions']); 
+			$sql.="actions='$r', ";
+		}
 		else $sql.="actions='', ";
 		
 		$safety=$db->GetRow("SELECT * FROM safety_plans where room_id=$request[room_id]");
-		if($safety) $sql.="supervisor='" . addslashes($safety['pi']) . "', ";
+		if($safety) $sql.="supervisor='" . addslashes($safety['pi']) . " ', ";
 		else $sql.="supervisor='', ";
 		
 		$user=phpCAS::getUser();
