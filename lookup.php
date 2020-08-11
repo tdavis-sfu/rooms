@@ -73,7 +73,7 @@
 				$roominfo=$db->getRow($sql);
 				
 				$sql="SELECT * from safety_plans WHERE room_id=$sroom";
-				$safety=$db->GetRow($sql);
+				$safety=$db->GetRow($sql);	
 
 				$sql="SELECT * FROM inspections WHERE room_id=$sroom order by datetime desc";
 				$inspections=$db->GetAll($sql);	

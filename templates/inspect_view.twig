@@ -58,7 +58,7 @@
 				{% for question in questions %}
 				<div class='row'>
 					<div class='cell'>{{ question.number }}</div>
-					<div class='cell'>{{ question.question }}</div>
+					<div class='cell'>{% autoescape false %}{{ question.question }}{% endautoescape %}</div>
 					<div class='cell'>
 					{% if question.stat == 'No' %}
 					<font color='red'>{{ question.stat }}</font>
