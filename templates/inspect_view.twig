@@ -78,7 +78,7 @@
 					<div class='cell'>
 					<b>Comments</b>
 						<div class='cell'>
-						{{ var.comments }}
+						{% autoescape false %}{{ var.comments }}{% endautoescape %}
 						</div>
 					</div>
 				</div>
@@ -86,7 +86,7 @@
 			   		<div class='cell'>
 			   		<b>Actions</b>
 			   			<div class='cell'>
-			   			{{ var.actions }}
+			   			{% autoescape false %}{{ var.actions }}{% endautoescape %}
 			   			</div>
 			   		</div>
 			   </div>
