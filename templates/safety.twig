@@ -11,7 +11,7 @@
 	</head>
 
 <body>
-
+{{ include('header.twig') }}
 	<form name='theform' action='{{ config.url_root }}/safety.php' method='get'>
 		<input type='hidden' name='repeat_id' value='{{ repeat_id }}'>
 		<select id='faculty_id' name='faculty_id' onchange='javascript: document.theform.submit();'>

@@ -188,5 +188,6 @@ echo $template->render([
 	'purpose_options'=>$purpose_options,
 	'faculty'=>$faculty,
 	'repeat_id'=>$repeat_id,
+	'pagename'=>'safety',
 	'err'=>$err]);
 ?>

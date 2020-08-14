@@ -97,6 +97,7 @@ echo $template->render([
 	'havesearched'=>$havesearched,
 	'safety'=>$safety,
 	'config'=>$configInfo,
+	'pagename'=>'lookup',
 	'err'=>$err]);
 ?>
   

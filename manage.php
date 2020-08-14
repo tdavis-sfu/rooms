@@ -161,6 +161,7 @@ echo $template->render([
 	'foptions'=>$foptions,
 	'roomlist'=>$roomlist,
 	'calledfunction'=>$request['function'],
+	'pagename'=>'manage',
 	'err'=>$err]);
 ?>
   
