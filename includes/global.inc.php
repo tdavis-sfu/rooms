@@ -74,6 +74,7 @@ if($authUser) {
 	$configInfo['can_inspect']=$authUser['inspect'];
 	$configInfo['can_admin']=$authUser['admin'];
 }	
+else phpCAS::logout();
 
 /**
 * @desc Configurates the session and starts it
