@@ -12,7 +12,7 @@
 
 <body>
 
-<form name='inputform' action='{{ config.url_root }}/inspect.php?saveform' method='get'>
+<form name='inputform' action='inspect.php?saveform' method='get'>
 <input type='hidden' name='room_id' value='{{ var.room_id }}'/>
 <div id='box'>	
 	<div class='boxrow'>
@@ -58,12 +58,30 @@
 	<div class='boxrow'>
 		<div id='resp-table'>
 			<div id='resp-table-body' class='container'>
-				<div class='row'><div class='cell'></div><div class='cell'></div><div class='cell'><b> Yes&nbsp;No&nbsp;N/A</b></div></div>
+				<div class='row'><div class='cell'></div><div class='cell'></div>
+					<div class='cell'>
+						<div style='display:table; width:100%;'>
+							<div style='display:table-row'>
+								<div style='display:table-cell; width:30%;'><b>Yes</b></div>
+								<div style='display:table-cell; width:30%;'><b>No</b></div>
+								<div style='display:table-cell; width:30%;'><b>N/A</b></div>
+							</div>
+						</div>
+					</div>
+				</div>
 				{% for question in questions %}
 				<div class='row'>
 					<div class='cell'>{{ question.number }}</div>
 					<div class='cell'>{{ question.question }}</div>
-					<div class='cell'><input type='radio' name='Q{{ question.number }}' value='yes'> <input type='radio' name='Q{{ question.number }}' value='no'> <input type='radio' name='Q{{ question.number }}' value='na'></div>	
+					<div class='cell'>
+						<div style='display:table; width:100%;'>
+							<div style='display:table-row'>
+								<div style='display:table-cell; width:30%; background-color: #efe;'><input type='radio' name='Q{{ question.number }}' value='yes'/></div>
+								<div style='display:table-cell; width:30%; background-color: #fee;'><input type='radio' name='Q{{ question.number }}' value='no'/></div>
+								<div style='display:table-cell; width:30%;'><input type='radio' name='Q{{ question.number }}' value='na'/></div>
+							</div>
+						</div>
+					</div>	
 				</div>
 				{% endfor %}
 			</div>

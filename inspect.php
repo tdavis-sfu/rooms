@@ -4,8 +4,16 @@
 	//error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_DEPRECATED);
     //ini_set('display_errors', 'On');
 	global $db;
+	
+	//Check if they are authorized
+	
+	if($configInfo['can_inspect'] == FALSE) { header("Location: $configInfo[url_root]/unauthorized.html");}
+	
+	
 	$template = $twig->load('inspect.twig');
 	$var=array();
+	
+	
 	//echo "<pre>";
 	//printf("Initial character set: %s\n", mysqli_character_set_name($db->_connectionID));
 	//mysqli_set_charset($db->_connectionID, "utf8mb4");
@@ -14,9 +22,9 @@
 	//print_r($configInfo);
 	//print_r($_REQUEST);
 	//Deal with any form input
-	echo"<pre>";
+	//echo"<pre>";
 	//print_r($db);
-	echo"</pre>";
+	//echo"</pre>";
 	
 	if(sizeof($_REQUEST) >= 1) {
 		//clean up
@@ -38,7 +46,7 @@
 		$faculty=$db->GetRow("SELECT * FROM user_faculty WHERE id=$roominfo[faculty_id]");
 		if($faculty['id']==5) $faculty_id=5; else $faculty_id=0;
 		$questions=$db->GetAll("SELECT * FROM inspection_questions WHERE faculty_id=$faculty_id ORDER BY number");
-		$sql="INSERT INTO inspections SET room_id=$request[room_id],datetime=CURDATE(), ";
+		$sql="INSERT INTO inspections SET room_id=$request[room_id],inspect_date=NOW(), ";
 		foreach($questions as $question){
 			$sql.="`Q$question[number]`=";
 			$field="Q" . $question['number'];
@@ -74,7 +82,7 @@
 		}
 		else  $sql.="status=FALSE";
 		$sql.="";
-		echo $sql;
+		//echo $sql;
 		if(!$db->Execute($sql)) echo "<br>Error: " . $db->errorMsg() . "<br>";
 		else header("Location: $configInfo[url_root]/lookup.php?room_id=$request[room_id]");
 		

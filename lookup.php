@@ -4,6 +4,11 @@
 
 	global $db;
 	
+	//Check if they are authorized
+	
+	if($configInfo['can_view'] == FALSE) { header("Location: $configInfo[url_root]/unauthorized.html");}
+	
+	
 	//echo"<pre>";
 	//print_r($_SESSION); 
 	//echo "</pre>";
@@ -75,7 +80,7 @@
 				$sql="SELECT * from safety_plans WHERE room_id=$sroom";
 				$safety=$db->GetRow($sql);	
 
-				$sql="SELECT * FROM inspections WHERE room_id=$sroom order by datetime desc";
+				$sql="SELECT * FROM inspections WHERE room_id=$sroom order by inspect_date desc";
 				$inspections=$db->GetAll($sql);	
 			}//if not empty room
 		}		

@@ -39,7 +39,7 @@
 			   		$var['room']=$result['room'];
 			   		$var['supervisor']=$form['supervisor'];
 			   		$var['inspector']= $form['inspector'];
-			   		$var['date']= $form['datetime'];
+			   		$var['date']= $form['inspect_date'];
 			   	
 			   		$questions=$db->GetAll("SELECT * FROM inspection_questions WHERE faculty_id=$faculty_id ORDER BY number");
 			   		foreach($questions as $key=>$question){

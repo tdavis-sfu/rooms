@@ -46,6 +46,7 @@ $db->Connect(
 //Get TWIG started
 require_once "$configInfo[vendor]/autoload.php";
 $loader = new \Twig\Loader\FilesystemLoader("$configInfo[templates]");
+//Enable to allow caching in production environment
 //$twig = new \Twig\Environment($loader, ['cache' => "$configInfo[file_root]/cache"]);
 $twig = new \Twig\Environment($loader, []);
 
@@ -62,6 +63,17 @@ phpCAS::setNoCasServerValidation();
 // force CAS authentication
 phpCAS::forceAuthentication();
 
+$user=phpCAS::getUser();
+
+$authUser=$db->GetRow("SELECT * FROM `system_users` WHERE compid='$user'");
+
+if($authUser) {
+
+	$configInfo['user']=$user;
+	$configInfo['can_view']=$authUser['view'];
+	$configInfo['can_inspect']=$authUser['inspect'];
+	$configInfo['can_admin']=$authUser['admin'];
+}	
 
 /**
 * @desc Configurates the session and starts it

@@ -12,7 +12,7 @@
 
 <body>
 
-	<form name='theform' action='{{ config.url_root }}/lookup.php' method='get'>
+	<form name='theform' action='lookup.php' method='get'>
 		<select name='faculty_id' onchange='javascript: document.theform.submit();'>
 			{% autoescape false %}
 			{{ foptions }}
@@ -60,7 +60,7 @@
 					No Inspections
 				{% else %}
 					{% for ins in inspections %}
-						<a href='{{ config.url_root }}/inspect_view.php?inspect={{ ins.id }}'>{{ ins.datetime }}
+						<a href='{{ config.url_root }}/inspect_view.php?inspect={{ ins.id }}'>{{ ins.inspect_date }}
 						{% if ins.status %}
 						Passed
 						{% else %} 
@@ -71,13 +71,15 @@
 				{% endif %}
 				</td></tr>
 			</table>
+			{% if config.can_inspect %}
 			<table>
-				<form name='inspectme' action='{{ config.url_root }}/inspect.php' id='inspectme' method='GET'>
+				<form name='inspectme' action='inspect.php' id='inspectme' method='GET'>
 					<input type='hidden' name='status' value='new'/> 
 					<input type='hidden' name='room_id' value='{{ sroom }}'/>
 					<button type='submit' form='inspectme' value='Submit'>Inspect</button>
 				</form>
 			</table>
+			{% endif %}
 				
 		{% endif %}
 		
