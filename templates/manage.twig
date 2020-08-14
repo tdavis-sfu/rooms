@@ -1,0 +1,97 @@
+
+<html>	
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="phone.css" >	  
+
+</head>
+
+<body>
+<form name='form2' action='manage.php' method='get'>
+<input type='hidden' name='function' value='{{ calledfunction }}'/>
+	<table class='plain'>
+		<tr class='plain'>
+			<td>
+				<button type='button' onclick="javascript: document.form2.function.value='noinspection'; document.form2.submit();">No Inspection</button>
+			</td>
+			<td>
+				List rooms with approved plans but no inspections
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button type='button' onclick="javascript: document.form2.function.value='failedinspection'; document.form2.submit();">Failed Inspection</button>
+			</td>
+			<td>
+				List rooms with approved plans and current inspection status=Failed
+			</td>
+		</tr>
+		<tr>
+			<td colspan='2'>
+				List rooms supervised by 
+				<select name='supervisor' onchange="javascript: document.form2.function.value='supervised'; document.form2.submit();">
+				{% autoescape false %}
+				{{ pi_options }}
+				{% endautoescape %}
+				</select>
+
+			</td>
+		</tr>
+		{# 
+		<tr>
+			<td colspan='2'>List rooms not inspected in
+						<select name='delay' onchange="javascript: document.form2.function.value='timed'; document.form2.submit();">
+							<option value=''></option>
+							{% for week in 1..30 %}
+							<option value='{{ week }}'>{{ week }}</option>
+							{% endfor %}
+							<option value='31'>&gt;30</option>
+						</select> weeks
+			</td>
+		</tr>
+		#}
+
+		<tr>
+			<td colspan='2'>Faculty: 
+						<select name='faculty' onchange="javascript: document.form2.submit();">
+							{% autoescape false %}
+							{{ foptions }}
+							{% endautoescape %}
+						</select>
+			</td>
+		</tr>
+
+				
+</table>
+</form>
+{% if calledfunction=='noinspection' %}
+<b> Approved Plan, No Inspections</b>
+{% endif %}
+{% if calledfunction=='failedinspection' %}
+<b>Failed Latest Inspection</b>
+{% endif %}
+{% if calledfunction %}
+<table>
+	<tr>
+		<th>Building</th><th>Room</th><th>Type</th><th>Capacity</th><th>Supervisor</th><th>Purpose</th>
+		{% if calledfunction=='failedinspection' %}
+		<th>Date</th><th></th>
+		{% endif %}
+	</tr>
+	{% for room in roomlist %}
+	<tr>
+		<td>{{ room.building_name }}</td><td>{{ room.room_name }}</td><td>{{ room.room_type }}</td><td>{{ room.capacity }}</td><td>{{ room.pi }}</td><td>{{ room.purpose }}</td>
+		{% if calledfunction=='failedinspection' %}
+		<td>{{ room.thedate }}</td><td><a href='{{ configInfo.url_root }}/inspect_view.php?inspect={{ room.inspectionid }}'>Inspection</a></td>
+		{% endif %}
+	</tr>
+	{% endfor %}
+</table>
+{% endif %}
+
+</body>
+</html>
