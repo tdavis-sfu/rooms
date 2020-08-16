@@ -6,5 +6,10 @@
 {% if pagename=='manage' %}<b>Manage</b>{% else %}Manage{% endif %}</a></div>
 <div >&nbsp;&nbsp;&nbsp;<a style='color:#ffff; text-decoration:none;' href='safety.php'>
 {% if pagename=='safety' %}<b>Safety Plans</b>{% else %}Safety Plans{% endif %}</a></div>
+{% if config.can_admin %}
+<div >&nbsp;&nbsp;&nbsp;<a style='color:#ffff; text-decoration:none;' href='admin.php'>
+{% if pagename=='admin' %}<b>Admin</b>{% else %}Admin{% endif %}</a></div>
+{% endif %}
+
 </div></div>
 <br>

@@ -1,0 +1,66 @@
+
+<html>	
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="phone.css" >	  
+
+</head>
+
+<body>
+{{ include('header.twig') }}
+{% if err %}
+<font color='red'><b>{{ err }}</b></font>
+{% endif %}
+<form name='form1' action='{{ config.url_root }}/admin.php' method='get'>
+<input type='hidden' name='function' value=''/>
+<input type='hidden' name='id' value='{{ user.id }}'/>
+{% if function=='list' %}
+
+
+<button type='button' onClick="javascript: document.form1.function.value='new'; document.form1.submit();">New User</button><br><br>
+	<table>
+	{% autoescape false %}
+	{% for user in sysusers %}
+		<tr><td>
+		{% if user.lastname %}{{ user.lastname }}, {% endif %}{{ user.firstname }}</td><td>{{ user.compid }}</td><td><button type='submit' onClick="javascript: document.form1.function.value='edit'; document.form1.id.value='{{ user.id }}'; document.form1.submit();">Edit</button></td></tr>
+	{% endfor %}
+	</table>
+	{% endautoescape %}
+</form>
+{% endif %}
+
+{% if function=='edit' %}
+{% autoescape false %}
+<table>
+	<tr>
+		<td>First Name</td><td><input type='text' name='firstname' value='{{ user.firstname }}'/></td>
+	</tr>
+	<tr>
+		<td>Last Name</td><td><input type='text' name='lastname' value='{{ user.lastname }}'/></td>
+	</tr>
+	<tr>
+		<td>Comp ID</td><td><input type='text' name='compid' value='{{ user.compid }}'/></td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<label for='view'>View:</label><input type='checkbox' id='view' name='view' {% if user.view %}checked{% endif %}/>&nbsp;&nbsp;
+			<label for='view'>Inspect:</label><input type='checkbox' id='inspect' name='inspect' {% if user.inspect %}checked{% endif %}/>&nbsp;&nbsp;
+			<label for='view'>Admin:</label><input type='checkbox' id='admin' name='admin' {% if user.admin %}checked{% endif %}/>
+			
+		</td>
+	</tr>
+</table>
+{% endautoescape %}
+{% if user.compid!='tjdavis' %}
+&nbsp;&nbsp;<button type='submit' onClick="javascript: document.form1.function.value='save';document.form1.submit();">Save</button>
+&nbsp;&nbsp;<button type='submit' onClick="javascript: document.form1.function.value='delete';document.form1.submit();">Delete</button>
+{% endif %}
+
+{% endif %}
+</form>
+</body>
+</html>

@@ -12,6 +12,8 @@
 
 <body>
 
+{{ include('header.twig') }}
+
 <form name='inputform' action='inspect.php?saveform' method='get'>
 <input type='hidden' name='room_id' value='{{ var.room_id }}'/>
 <div id='box'>	
