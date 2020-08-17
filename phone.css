@@ -96,7 +96,10 @@
 	.bordered{
 		
 	}
+	.header {
+		padding-top:5px;
 
+	}
 	
 	div.colspan,
 div.colspan+div.cell {

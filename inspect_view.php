@@ -61,6 +61,6 @@
    	}//isset inspect
 
   
-  echo $template->render(['var'=>$var,'questions'=>$questions,'err'=>$err]);
+  echo $template->render(['var'=>$var,'questions'=>$questions,'title'=>'View Inspection','err'=>$err]);
   
 ?>

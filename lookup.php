@@ -98,6 +98,7 @@ echo $template->render([
 	'safety'=>$safety,
 	'config'=>$configInfo,
 	'pagename'=>'lookup',
+	'title'=>'Lookup Room',
 	'err'=>$err]);
 ?>
   

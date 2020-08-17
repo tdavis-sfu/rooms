@@ -80,6 +80,7 @@
 		'pagename'=>'admin',
 		'function'=>$function,
 		'user'=>$user,
+		'title'=>'Admin',
 		'err'=>$err]);
 ?>
   

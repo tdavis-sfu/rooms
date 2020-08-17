@@ -189,5 +189,6 @@ echo $template->render([
 	'faculty'=>$faculty,
 	'repeat_id'=>$repeat_id,
 	'pagename'=>'safety',
+	'title'=>'Safety Plans',
 	'err'=>$err]);
 ?>

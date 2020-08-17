@@ -162,6 +162,7 @@ echo $template->render([
 	'roomlist'=>$roomlist,
 	'calledfunction'=>$request['function'],
 	'pagename'=>'manage',
+	'title'=>'Manage',
 	'err'=>$err]);
 ?>
   
