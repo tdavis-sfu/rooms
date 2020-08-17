@@ -12,7 +12,8 @@
 
 <body>
 {{ include('header.twig') }}
-
+<div class='ptitle' ><b>View Room Status
+{% if config.can_inspect %} and Inspect{% endif %}</b></div>
 	<form name='theform' action='lookup.php' method='get'>
 		<select name='faculty_id' onchange='javascript: document.theform.submit();'>
 			{% autoescape false %}
@@ -72,14 +73,17 @@
 				{% endif %}
 				</td></tr>
 			</table>
+			<br>
 			{% if config.can_inspect %}
+			<form name='inspectme' action='inspect.php' id='inspectme' method='GET'>
 			<table>
-				<form name='inspectme' action='inspect.php' id='inspectme' method='GET'>
+				
 					<input type='hidden' name='status' value='new'/> 
 					<input type='hidden' name='room_id' value='{{ sroom }}'/>
-					<button type='submit' form='inspectme' value='Submit'>Inspect</button>
-				</form>
+					<button type='submit' form='inspectme' value='Submit'><b>Inspect</b></button>
+				
 			</table>
+			</form>
 			{% endif %}
 				
 		{% endif %}

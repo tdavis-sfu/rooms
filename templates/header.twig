@@ -1,16 +1,15 @@
-<div style='padding-top:3px; padding-bottom:0px; width:100%; background-color:#922; color: #fff; display: flex; flex-wrap: nowrap; align-content:stretch;text-decoration: none'>
+<div class='redheader'>
 
-<div  >&nbsp;&nbsp;&nbsp;<a style='color:#ffff; text-decoration:inherit;' href='lookup.php'>
+<div  >&nbsp;&nbsp;&nbsp;<a class='headertext' href='lookup.php'>
 {% if pagename=='lookup' %}<b>Lookup</b>{% else %}Lookup{% endif %}</a></div>
-<div >&nbsp;&nbsp;&nbsp;<a style='color:#ffff; text-decoration:none;' href='manage.php'>
+<div >&nbsp;&nbsp;&nbsp;<a class='headertext' href='manage.php'>
 {% if pagename=='manage' %}<b>Manage</b>{% else %}Manage{% endif %}</a></div>
-<div >&nbsp;&nbsp;&nbsp;<a style='color:#ffff; text-decoration:none;' href='safety.php'>
+<div >&nbsp;&nbsp;&nbsp;<a class='headertext' href='safety.php'>
 {% if pagename=='safety' %}<b>Safety Plans</b>{% else %}Safety Plans{% endif %}</a></div>
 {% if config.can_admin %}
-<div >&nbsp;&nbsp;&nbsp;<a style='color:#ffff; text-decoration:none;' href='admin.php'>
+<div >&nbsp;&nbsp;&nbsp;<a class='headertext' href='admin.php'>
 {% if pagename=='admin' %}<b>Admin</b>{% else %}Admin{% endif %}</a></div>
 {% endif %}
 <div style='padding-left:30px; margin-bottom:3px;'><a style='text-decoration:none;' href='help_overview.php'><img alt='Help' align='top' src='images/help_blue_20.png'></a></div>
 
-</div></div>
-<br>
+</div>

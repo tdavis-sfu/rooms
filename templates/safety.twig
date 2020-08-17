@@ -12,6 +12,7 @@
 
 <body>
 {{ include('header.twig') }}
+<div class='ptitle' ><b>View and Manage Safety Plans</b></div>
 	<form name='theform' action='{{ config.url_root }}/safety.php' method='get'>
 		<input type='hidden' name='repeat_id' value='{{ repeat_id }}'>
 		<select id='faculty_id' name='faculty_id' onchange='javascript: document.theform.submit();'>
