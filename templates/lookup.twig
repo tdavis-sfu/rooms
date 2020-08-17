@@ -63,9 +63,9 @@
 					{% for ins in inspections %}
 						<a href='{{ config.url_root }}/inspect_view.php?inspect={{ ins.id }}'>{{ ins.inspect_date }}
 						{% if ins.status %}
-						Passed
+						Compliant
 						{% else %} 
-						Failed
+						Non-compliant
 						{% endif %}
 						</a><br>
 					{% endfor %}
