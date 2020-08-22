@@ -94,7 +94,13 @@
 	</tr>
 	{% for room in roomlist %}
 	<tr>
-		<td>{{ room.building_name }}</td><td>{{ room.room_name }}</td><td>{{ room.room_type }}</td><td>{{ room.capacity }}</td><td>{{ room.pi }}</td><td>{{ room.purpose }}</td>
+		<td>{{ room.building_name }}</td><td>
+		{% if calledfunction=='listnolink' %}
+		<a href='{{config.url_root }}/safety.php?room_id={{ room.room_id }}'>{{ room.room_name }}</a>
+		{% else %}
+		{{ room.room_name }}
+		{% endif %}
+		</td><td>{{ room.room_type }}</td><td>{{ room.capacity }}</td><td>{{ room.pi }}</td><td>{{ room.purpose }}</td>
 		{% if calledfunction=='failedinspection' %}
 		<td>{{ room.thedate }}</td><td><a href='{{ config.url_root }}/inspect_view.php?inspect={{ room.inspectionid }}'>Inspection</a></td>
 		{% endif %}

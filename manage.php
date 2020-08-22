@@ -164,15 +164,15 @@ SELECT
 	user_room.type_descript as room_type, 
 	user_room.capacity as capacity, 
 	safety_plans.pi as pi, 
-	safety_plans.purpose as purpose 
+	safety_plans.purpose as purpose,	
+	user_room.id as room_id
 FROM user_room 
 LEFT JOIN `user_building` ON (user_room.building_id=user_building.id) 
-LEFT JOIN inspections ON (user_room.id=inspections.room_id) 
 LEFT JOIN safety_plans ON (safety_plans.room_id=user_room.id) 
 WHERE 
 	faculty_id$facultycall
 	AND safety_plans.id IS NOT NULL 
-	AND safety_plans.plan != ''
+	AND (safety_plans.plan = '')
 ORDER BY user_building.name,user_room.short_name";	
 			
 				$roomlist=$db->getAll($sql);
