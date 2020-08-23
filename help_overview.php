@@ -6,9 +6,7 @@
 
 	$template = $twig->load('help_overview.twig');
 	
-	$admins=$db->GetAll("SELECT * from system_users WHERE admin=1");
-	
-
+	$admins=$db->GetAll("SELECT * from system_users WHERE admin=1 order by lastname");
    	
 echo $template->render([
 	'pagename'=>'help_overview',
