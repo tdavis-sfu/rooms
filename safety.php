@@ -4,6 +4,9 @@
 	global $db;
 	$template = $twig->load('safety.twig');
 	
+	//Check if they are authorized
+	if($configInfo['can_admin'] == FALSE) { header("Location: $configInfo[url_root]/unauthorized.html");}
+	
 	/*
 	$sql="SELECT * from safety_plans where building_id !=0";
 	$plans=$db->GetAll($sql);

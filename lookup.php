@@ -6,8 +6,8 @@
 	
 	//Check if they are authorized
 	
-	if($configInfo['can_view'] == FALSE) { header("Location: $configInfo[url_root]/unauthorized.html");}
-	
+	//if($configInfo['can_view'] == FALSE) { header("Location: $configInfo[url_root]/unauthorized.html");}
+	// In this case everyone can view some things -- now managed in TWIG file
 	
 	//echo"<pre>";
 	//print_r($_SESSION); 

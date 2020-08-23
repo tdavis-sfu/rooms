@@ -2,14 +2,29 @@
 
 <div  >&nbsp;&nbsp;&nbsp;<a class='headertext' href='lookup.php'>
 {% if pagename=='lookup' %}<b>Lookup</b>{% else %}Lookup{% endif %}</a></div>
-<div >&nbsp;&nbsp;&nbsp;<a class='headertext' href='manage.php'>
-{% if pagename=='manage' %}<b>Manage</b>{% else %}Manage{% endif %}</a></div>
-<div >&nbsp;&nbsp;&nbsp;<a class='headertext' href='safety.php'>
-{% if pagename=='safety' %}<b>Safety Plans</b>{% else %}Safety Plans{% endif %}</a></div>
-{% if config.can_admin %}
-<div >&nbsp;&nbsp;&nbsp;<a class='headertext' href='admin.php'>
-{% if pagename=='admin' %}<b>Admin</b>{% else %}Admin{% endif %}</a></div>
-{% endif %}
+
+<div >	&nbsp;&nbsp;&nbsp;
+	{% if config.can_admin %}
+		<a class='headertext' href='manage.php'>
+	{% endif %}
+{% if pagename=='manage' %}<b>Manage</b>{% else %}Manage{% endif %}
+{% if config.can_admin %}</a>{% endif %}
+</div>
+<div >&nbsp;&nbsp;&nbsp;
+	{% if config.can_admin %}
+		<a class='headertext' href='safety.php'>
+	{% endif %}
+{% if pagename=='safety' %}<b>Safety Plans</b>{% else %}Safety Plans{% endif %}
+{% if config.can_admin %}</a>{% endif %}
+</div>
+<div >&nbsp;&nbsp;&nbsp;
+	{% if config.can_admin %}
+		<a class='headertext' href='admin.php'>
+	{% endif %}
+{% if pagename=='admin' %}<b>Admin</b>{% else %}Admin{% endif %}
+{% if config.can_admin %}</a>{% endif %}
+</div>
+
 <div style='padding-left:30px; margin-bottom:3px;'><a style='text-decoration:none;' href='help_overview.php'><img alt='Help' align='top' src='images/help_blue_20.png'></a></div>
 
 </div>

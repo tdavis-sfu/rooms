@@ -62,11 +62,17 @@
 					No Inspections
 				{% else %}
 					{% for ins in inspections %}
-						<a href='{{ config.url_root }}/inspect_view.php?inspect={{ ins.id }}'>{{ ins.inspect_date }}
+						{% if config.can_view %}
+							<a href='{{ config.url_root }}/inspect_view.php?inspect={{ ins.id }}'>
+						{% endif %}
+						{{ ins.inspect_date }}
 						{% if ins.status %}
 						Compliant
 						{% else %} 
 						Non-compliant
+						{% endif %}
+						{% if config.can_view %}
+							</a>
 						{% endif %}
 						</a><br>
 					{% endfor %}
