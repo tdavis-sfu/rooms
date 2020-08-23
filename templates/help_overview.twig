@@ -18,7 +18,13 @@
 	<p><u>Manage:</u> Utilities for listing inspection reports and room status. Filter by PI/Supervisor or Faculty. </p>
 	<p><u>Safety Plans:</u> View or enter data & links for Site Safety Plans.</p>
 	<p><u>Admin:</u> Manage users</p>
-	<p>If you are reading this far you already have at least 'View' access. To generate Inspection Reports contact your Director of Admin to request increased privileges. </p>
+	<p>To access the system with increased privileges contact a system administrator from your area:<br><br>
+	<table>
+	{% for admin in admins %}
+	<tr><td>{{ admin.firstname }}</td><td>{{ admin.lastname }}</td><td>{{ admin.compid }}@sfu.ca</td></tr>
+	{% endfor %}
+	</table>
+	</p>
 	<br><br><br>
 	<font size='-1'>Maintained by the VPRI <a href='#'>Research Intelligence Office</a></font>
 </div>
