@@ -64,17 +64,18 @@ phpCAS::setNoCasServerValidation();
 phpCAS::forceAuthentication();
 
 $user=phpCAS::getUser();
+$configInfo['user']=$user;
 
 $authUser=$db->GetRow("SELECT * FROM `system_users` WHERE compid='$user'");
 
 if($authUser) {
 
-	$configInfo['user']=$user;
 	$configInfo['can_view']=$authUser['view'];
 	$configInfo['can_inspect']=$authUser['inspect'];
 	$configInfo['can_admin']=$authUser['admin'];
-}	
-else phpCAS::logoutWithUrl("$configInfo[url_root]/unauthorized.html");
+}
+	
+//else phpCAS::logoutWithUrl("$configInfo[url_root]/unauthorized.html");
 
 /**
 * @desc Configurates the session and starts it
