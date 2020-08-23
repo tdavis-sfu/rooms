@@ -43,8 +43,6 @@
 			}
 		}
 		//load last ID
-		//**************************TODO***********************
-		//save to new entry
 		
 		
 	}
@@ -61,6 +59,7 @@
 			if(!$safety_plan){
 				$db->Execute("INSERT INTO `safety_plans` () VALUES ()");
 				$id=$db->insert_id();
+				echo "INSERTING NEW ONE";
 			}
 			else $id=$safety_plan['id'];
 			

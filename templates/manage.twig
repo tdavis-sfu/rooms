@@ -78,14 +78,20 @@
 				
 </table>
 </form>
+<p>
 {% if calledfunction=='noinspection' %}
 <b> Approved Plan, No Inspections</b>
 {% endif %}
 {% if calledfunction=='failedinspection' %}
 <b>Failed Latest Inspection</b>
 {% endif %}
+{% if calledfunction=='listnolink' %}
+<b>No Links</b>
+{% endif %}
 {% if calledfunction %}
+<font size='-1'>&nbsp;&nbsp;	(# {{ count }}) </font>
 <table>
+
 	<tr>
 		<th>Building</th><th>Room</th><th>Type</th><th>Capacity</th><th>Supervisor</th><th>Purpose</th>
 		{% if calledfunction=='failedinspection' %}

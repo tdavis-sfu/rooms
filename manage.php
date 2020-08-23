@@ -188,6 +188,7 @@ echo $template->render([
 	'calledfunction'=>$request['function'],
 	'pagename'=>'manage',
 	'title'=>'Manage',
+	'count'=>count($roomlist),
 	'err'=>$err]);
 ?>
   
