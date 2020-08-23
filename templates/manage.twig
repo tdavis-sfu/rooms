@@ -24,6 +24,14 @@
 				List rooms with approved plans but no inspections
 			</td>
 		</tr>
+		<tr class='plain'>
+			<td>
+				<button type='button' onclick="javascript: document.form2.function.value='latestinspection'; document.form2.submit();">Latest Inspections</button>
+			</td>
+			<td>
+				List rooms with approved plans but no inspections
+			</td>
+		</tr>
 		<tr>
 			<td>
 				<button type='button' onclick="javascript: document.form2.function.value='failedinspection'; document.form2.submit();">Failed Inspection</button>
@@ -96,7 +104,7 @@
 
 	<tr>
 		<th>Building</th><th>Room</th><th>Type</th><th>Capacity</th><th>Supervisor</th><th>Purpose</th>
-		{% if calledfunction=='failedinspection' %}
+		{% if calledfunction=='failedinspection' or calledfunction=='latestinspection' %}
 		<th>Date</th><th></th>
 		{% endif %}
 	</tr>
@@ -109,7 +117,7 @@
 		{{ room.room_name }}
 		{% endif %}
 		</td><td>{{ room.room_type }}</td><td>{{ room.capacity }}</td><td>{{ room.pi }}</td><td>{{ room.purpose }}</td>
-		{% if calledfunction=='failedinspection' %}
+		{% if calledfunction=='failedinspection' or calledfunction=='latestinspection' %}
 		<td>{{ room.thedate }}</td><td><a href='{{ config.url_root }}/inspect_view.php?inspect={{ room.inspectionid }}'>Inspection</a></td>
 		{% endif %}
 	</tr>

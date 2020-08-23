@@ -176,6 +176,33 @@ WHERE
 ORDER BY user_building.name,user_room.short_name";	
 			
 				$roomlist=$db->getAll($sql);
+		break;
+		
+		case 'latestinspection':
+		if ($faculty=='-1') $facultycall=">=1"; else $facultycall="=$faculty" ;
+		$sql="
+
+		
+		SELECT 
+	user_building.name as building_name, 
+	user_room.short_name as room_name, 
+	inspections.id as inspectionid,
+	user_room.type_descript as room_type, 
+	user_room.capacity as capacity, 
+	safety_plans.pi as pi, 
+	safety_plans.purpose as purpose ,
+	inspections.`inspect_date` as thedate
+FROM user_room 
+LEFT JOIN `user_building` ON (user_room.building_id=user_building.id) 
+LEFT JOIN inspections ON (user_room.id=inspections.room_id) 
+LEFT JOIN safety_plans ON (safety_plans.room_id=user_room.id) 
+WHERE 
+	faculty_id$facultycall
+	AND (inspections.id IS NOT NULL) 
+	$supervisor_call
+	AND safety_plans.id IS NOT NULL 
+ORDER BY user_building.name,user_room.short_name,thedate desc";				
+				$roomlist=$db->getAll($sql);
 		
 		
 	}//case
