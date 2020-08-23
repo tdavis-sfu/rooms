@@ -179,7 +179,8 @@ ORDER BY user_building.name,user_room.short_name";
 		
 		
 	}//case
-	
+
+if($roomlist) $count=count($roomlist); else $count=0;
 echo $template->render([
 	'config'=>$configInfo,
 	'pi_options'=>$pi_options,
@@ -188,7 +189,7 @@ echo $template->render([
 	'calledfunction'=>$request['function'],
 	'pagename'=>'manage',
 	'title'=>'Manage',
-	'count'=>count($roomlist),
+	'count'=>$count,
 	'err'=>$err]);
 ?>
   
