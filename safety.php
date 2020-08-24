@@ -33,7 +33,7 @@
 	if(isset($request['save'])) if($request['save']=='repeat') {
 		if(isset($request['repeat_id'])){
 			$sql="SELECT id, room_id, pi, contact, purpose, occupancy, plan FROM safety_plans WHERE id='$request[repeat_id]'";
-			echo $sql;
+			//echo $sql;
 			
 			$repeat=$db->GetRow($sql);
 			if($repeat){
@@ -62,7 +62,7 @@
 			if(!$safety_plan){
 				$db->Execute("INSERT INTO `safety_plans` () VALUES ()");
 				$id=$db->insert_id();
-				echo "INSERTING NEW ONE";
+				//echo "INSERTING NEW ONE";
 			}
 			else $id=$safety_plan['id'];
 			
