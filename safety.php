@@ -60,7 +60,7 @@
 			//check if this is a new entry
 			$safety_plan=$db->GetRow("SELECT * from safety_plans where room_id='$request[room_id]'");
 			if(!$safety_plan){
-				$db->Execute("INSERT INTO `safety_plans` () VALUES ()");
+				$db->Execute("INSERT INTO `safety_plans` (building_id,room_id) VALUES (0,0)");
 				$id=$db->insert_id();
 				//echo "INSERTING NEW ONE";
 			}
