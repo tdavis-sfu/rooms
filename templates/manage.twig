@@ -26,7 +26,7 @@
 		</tr>
 		<tr class='plain'>
 			<td>
-				<button type='button' onclick="javascript: document.form2.function.value='latestinspection'; document.form2.submit();">Inspections</button>
+				<button type='button' onclick="javascript: document.form2.function.value='allinspections'; document.form2.submit();">Inspections</button>
 			</td>
 			<td>
 				List rooms with approved plans and show inspection history
@@ -87,6 +87,9 @@
 </table>
 </form>
 <p>
+{% if calledfunction=='allinspections' %}
+<b> Approved Plan, Inspection History</b>
+{% endif %}
 {% if calledfunction=='noinspection' %}
 <b> Approved Plan, No Inspections</b>
 {% endif %}
@@ -94,7 +97,7 @@
 <b>Failed Latest Inspection</b>
 {% endif %}
 {% if calledfunction=='listnolink' %}
-<b>No Links</b>
+<b>No Links</b>	
 {% endif %}
 {% if calledfunction %}
 {% if count >0 %}
@@ -103,9 +106,12 @@
 <table>
 
 	<tr>
-		<th>Building</th><th>Room</th><th>Type</th><th>Capacity</th><th>Supervisor</th><th>Purpose</th>
-		{% if calledfunction=='failedinspection' or calledfunction=='latestinspection' %}
+		<th>Building</th><th>Room</th><th>Type</th><th>Cap.</th><th>Supervisor</th><th>Purpose</th>
+		{% if calledfunction=='failedinspection' %}
 		<th>Date</th><th></th>
+		{% endif %}
+		{% if calledfunction=='allinspections' %}
+		<th>Inspection Date</th><th>Outcome</th><th></th>
 		{% endif %}
 	</tr>
 	{% for room in roomlist %}
@@ -117,8 +123,12 @@
 		{{ room.room_name }}
 		{% endif %}
 		</td><td>{{ room.room_type }}</td><td>{{ room.capacity }}</td><td>{{ room.pi }}</td><td>{{ room.purpose }}</td>
-		{% if calledfunction=='failedinspection' or calledfunction=='latestinspection' %}
+		{% if calledfunction=='failedinspection' %}
 		<td>{{ room.thedate }}</td><td><a href='{{ config.url_root }}/inspect_view.php?inspect={{ room.inspectionid }}'>Inspection</a></td>
+		{% endif %}
+		{% if calledfunction=='allinspections' %}
+		<td>{{ room.thedate }}</td><td>{{ room.outcome }}</td>
+		<td style='text-align: center;'>{% autoescape false %}{{ room.inspectme }}{% endautoescape %}</td>
 		{% endif %}
 	</tr>
 	{% endfor %}

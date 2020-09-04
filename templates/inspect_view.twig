@@ -44,6 +44,11 @@
 								<div class='row' >
 									<div class='cellnarrow'>Date Inspected:</div><div class='cellnarrow'>{{ var.date }}</div>
 								</div>
+								{% if config.can_admin %}
+								<div class='row' >
+									<div class='cellnarrow'></div><div class='cellnarrow'><button style='background-color: #AA3333;color: #FFFFFF;' onClick='window.location.href="inspect_view.php?&delete={{ var.id }}";'>Delete Entry</button></div>
+								{% endif %}
+								</div>
 							</div>
 						</div>
 				   		{% endif %}

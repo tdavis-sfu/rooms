@@ -18,9 +18,14 @@
 		}
 	}//any post variables
 	
+	if(isset($_REQUEST['delete']) && $configInfo['can_admin'] == TRUE){
+		$result=$db->Execute("DELETE from inspections WHERE id='$_REQUEST[delete]'");
+		$err= "Deleted record #$_REQUEST[delete]";
+	}
+	
   
    //Display one inspection
-   if(isset($_REQUEST['inspect'])) {
+   elseif(isset($_REQUEST['inspect'])) {
 	   $inspect_id= filter_var($_REQUEST['inspect'],FILTER_SANITIZE_NUMBER_INT);
 	   $sql="SELECT * from inspections where id=$inspect_id";
 	   $form=$db->GetRow($sql);
@@ -40,6 +45,7 @@
 			   		$var['supervisor']=$form['supervisor'];
 			   		$var['inspector']= $form['inspector'];
 			   		$var['date']= $form['inspect_date'];
+			   		$var['id'] = $form['id'];
 			   	
 			   		$questions=$db->GetAll("SELECT * FROM inspection_questions WHERE faculty_id=$faculty_id ORDER BY number");
 			   		foreach($questions as $key=>$question){
@@ -51,8 +57,8 @@
 				   	}
 				   	$var['comments']=html_entity_decode($form['comments']);
 				   	$var['actions']=html_entity_decode($form['actions']);
-				   	if ($form['status']==1) $var['status']='Pass';
-				   	else $var['status']='Fail';
+				   	if ($form['status']==1) $var['status']='Compliant';
+				   	else $var['status']='Non-compliant';
 
 				}//result
 	   		}//room found
@@ -61,6 +67,10 @@
    	}//isset inspect
 
   
-  echo $template->render(['var'=>$var,'questions'=>$questions,'title'=>'View Inspection','err'=>$err]);
+  echo $template->render(['var'=>$var,
+  							'config'=>$configInfo,
+  							'questions'=>$questions,
+  							'title'=>'View Inspection',
+  							'err'=>$err]);
   
 ?>

@@ -178,9 +178,9 @@ ORDER BY user_building.name,user_room.short_name";
 				$roomlist=$db->getAll($sql);
 		break;
 		
-		case 'latestinspection':
+		case 'allinspections':
 		if ($faculty=='-1') $facultycall=">=1"; else $facultycall="=$faculty" ;
-		$sql="
+	/*$sql="
 
 		
 		SELECT 
@@ -201,11 +201,61 @@ WHERE
 	AND (inspections.id IS NOT NULL) 
 	$supervisor_call
 	AND safety_plans.id IS NOT NULL 
-ORDER BY user_building.name,user_room.short_name,thedate desc";				
-				$roomlist=$db->getAll($sql);
+ORDER BY user_building.name,user_room.short_name,thedate desc";	
+*/
+
+		$sql="
+		SELECT 
+	user_building.name as building_name, 
+	user_room.short_name as room_name, 
+	user_room.type_descript as room_type, 
+	user_room.capacity as capacity, 
+	safety_plans.pi as pi, 
+	safety_plans.purpose as purpose,
+	user_room.id as room_id
+FROM user_room 
+LEFT JOIN `user_building` ON (user_room.building_id=user_building.id) 
+LEFT JOIN safety_plans ON (safety_plans.room_id=user_room.id) 
+WHERE 
+	faculty_id$facultycall
+	$supervisor_call
+	AND safety_plans.id IS NOT NULL 
+ORDER BY user_building.name,user_room.short_name
+		";			
+		$roughlist=$db->getAll($sql);
+		$roomlist=array();		
+		if($roughlist) foreach($roughlist as $oneroom){
+			$oneroom['inspectionid']='';
+			$oneroom['thedate']='';
+			$oneroom['outcome']='';
+			$oneroom['inspectme']="<button style='background-color: #4CAF50;' onClick='window.location.href=\"inspect.php?status=new&room_id=$oneroom[room_id]\"'>Inspect</button>";
+			
+			$sql="SELECT * from inspections WHERE room_id=$oneroom[room_id] order by inspect_date DESC LIMIT 5";
+			$inspections=$db->getAll($sql);
+			if(count($inspections) > 0){
+				$number=count($db->getAll("SELECT * from inspections WHERE room_id=$oneroom[room_id]"));
+				$oneroom['thedate']="Total: $number";
+				$roomlist[]=$oneroom; //create a line
+				foreach($inspections as $insp){
+					$subline=array();
+					$subline['inspectionid']=$insp['id'];
+					$subline['thedate']=$insp['inspect_date'];
+					$subline['outcome']=(0 == $insp['status']) ? 'Non-compliant' : 'Compliant';
+					$subline['inspectme']= "<button style='background-color: #AAAAAA;' onClick='window.location.href=\"inspect_view.php?&inspect=$insp[id]\"'>View</button>";
+					$roomlist[]=$subline;
+				}//foreach
+			}
+			else { 
+				$oneroom['thedate']='None';
+				$roomlist[]=$oneroom;
+			} //no inspections
+		}
+		//else $roomlist='';
+				
 		
 		
 	}//case
+	//printr($roomlist);
 
 if($roomlist) $count=count($roomlist); else $count=0;
 echo $template->render([
