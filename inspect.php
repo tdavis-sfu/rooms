@@ -33,6 +33,10 @@
 			$request[$key]=filter_var($item,FILTER_SANITIZE_STRING);
 		}
 	}//any post variables
+	
+	if(isset($_REQUEST['source'])) $source=$_REQUEST['source']; else $source='';
+	if(isset($_REQUEST['faculty'])) $facultyid=$_REQUEST['faculty']; else $facultyid='-1';
+	//printr($_REQUEST);
 
 	//check room_id for validity
 	$roominfo=$db->GetRow("SELECT * FROM user_room WHERE id=$request[room_id]");
@@ -84,6 +88,8 @@
 		$sql.="";
 		//echo $sql;
 		if(!$db->Execute($sql)) echo "<br>Error: " . $db->errorMsg() . "<br>";
+		//echo $source; exit;
+		if($source=='manage') header("Location: $configInfo[url_root]/manage.php?function=allinspections&supervisor=&faculty=$facultyid");
 		else header("Location: $configInfo[url_root]/lookup.php?room_id=$request[room_id]");
 		
 	}
@@ -113,11 +119,16 @@
 		}
 		   
  	} //status=new
+ 	
+ 	if (isset($_REQUEST['faculty'])) $faculty=$_REQUEST['faculty']; else $faculty='';
+ 	if (isset($_REQUEST['source'])) $source=$_REQUEST['source']; else $source='';
    
  	echo $template->render([
  			'var'=>$var,
  			'questions'=>$questions,
  			'config'=>$configInfo,
+ 			'source'=>$source,
+ 			'faculty'=>$faculty,
  			'err'=>$err]);
 
 
