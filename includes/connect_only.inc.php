@@ -43,7 +43,22 @@ $db->Connect(
     $configInfo["dbname"]
 );
 
-
+function sessionConfig() {
+    global $sessionConfig;
+    //session_name($sessionConfig["sessionname"]);
+    //session_set_cookie_params( $sessionConfig["sessionexpire"]);
+    //ini_set("session.gc_maxlifetime", "18000");
+    session_start();
+    //setcookie(session_name(), $_COOKIE[session_name()], time()+$sessionConfig["sessionexpire"]);
+    // If IP changed, destroy the session
+    if ( isset( $_SESSION['REMOTE_ADDR'] ) && $_SESSION['REMOTE_ADDR'] != $_SERVER['REMOTE_ADDR'] ) {
+        session_regenerate_id();
+        $_SESSION['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR'];
+    }
+    if ( !isset( $_SESSION['REMOTE_ADDR'] ) ) {
+        $_SESSION['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR'];
+    }
+}
 
 
 ?>

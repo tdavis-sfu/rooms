@@ -1,7 +1,7 @@
 <?php
 	header("Content-Type:application/json");
 	if (isset($_GET['room_id']) && $_GET['room_id']!="") {
-		require_once('includes/global.inc.php');
+		require_once('includes/connect_only.inc.php');
 		//global $configInfo; 
 		global $db;
 		$room_id=$_GET['room_id'];
