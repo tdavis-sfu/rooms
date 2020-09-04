@@ -15,9 +15,11 @@ $configInfos["localhost"]["vendor"] = '/Users/tjdavis/sfuvault/Sites/contracts/v
 $configInfos["localhost"]["templates"] = '/Users/tjdavis/sfuvault/Sites/contracts/templates';
 $configInfos["localhost"]["phpcas_path"] = '/Users/tjdavis/sfuvault/Sites/contracts/vendor/jasig/phpcas';
 
-$configInfos["vpr-db13.dc.sfu.ca"]["host"] = 'vpr-db12.dc.sfu.ca';
-$configInfos["vpr-db13.dc.sfu.ca"]["user"] = 'trevormon';
-$configInfos["vpr-db13.dc.sfu.ca"]["pass"] = 'ilike!pasta&pizza33%';
+$configInfos["vpr-db13.dc.sfu.ca"]["host"] = 'vpr-db13.dc.sfu.ca';
+//$configInfos["vpr-db13.dc.sfu.ca"]["user"] = 'trevormon';
+//$configInfos["vpr-db13.dc.sfu.ca"]["pass"] = 'ilike!pasta&pizza33%';
+$configInfos["vpr-db13.dc.sfu.ca"]["user"] = 'roombooking';
+$configInfos["vpr-db13.dc.sfu.ca"]["pass"] = 'rilincetc';
 $configInfos["vpr-db13.dc.sfu.ca"]["dbdriver"] = 'mysqli';
 $configInfos["vpr-db13.dc.sfu.ca"]["dbname"] = 'roombooking';
 $configInfos["vpr-db13.dc.sfu.ca"]["peardir"] = '/usr/lib/php';
