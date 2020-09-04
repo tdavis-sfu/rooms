@@ -12,6 +12,7 @@ echo $template->render([
 	'pagename'=>'help_overview',
 	'title'=>'Help Overview',
 	'admins'=>$admins,
+	'config'=>$configInfo,
 	'err'=>$err]);
 ?>
   
