@@ -19,7 +19,7 @@
 	}//any post variables
 	
 	if(isset($request['savegroup'])){
-		printr($request);
+		$err="SAVED";
 	}
 
 	$pis=$db->GetAll("SELECT DISTINCT pi as name from safety_plans ORDER BY pi");

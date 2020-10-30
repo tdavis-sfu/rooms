@@ -95,6 +95,9 @@
 				
 </table>
 </form>
+{% if err is not empty%}
+<p><b>{{ err }}</b></p>
+{% endif %}
 <p>
 {% if calledfunction=='allinspections' %}
 <b> Approved Plan, Inspection History</b>
@@ -109,7 +112,7 @@
 <b>No Links</b>	
 {% endif %}
 {% if calledfunction=='grouprooms' %}
-<b>Grouped Rooms</b>	
+<b>Group Rooms</b>	
 {% endif %}
 {% if calledfunction %}
 {% if count >0 %}
