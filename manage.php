@@ -51,7 +51,6 @@ SELECT
 	user_room.short_name as room_name, 
 	user_room.type_descript as room_type, 
 	user_room.capacity as capacity, 
-	user_room.id as id,
 	safety_plans.pi as pi, 
 	safety_plans.purpose as purpose
 FROM user_room 

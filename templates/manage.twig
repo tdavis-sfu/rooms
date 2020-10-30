@@ -136,7 +136,7 @@
 	{% for room in roomlist %}
 	<tr>
 		{% if calledfunction=='grouprooms' %}
-		<td><input type='checkbox' name='{{ room.id }}' /></td>
+		<td><input type='checkbox' name='{{ room.room_id }}' /></td>
 		{% endif %}
 		<td>{{ room.building_name }}</td><td>
 		{% if calledfunction=='listnolink' %}
