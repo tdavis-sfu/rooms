@@ -23,7 +23,7 @@
 			//check if group exists
 			$result=$db->Execute("DELETE from groups where groupname='$request[groupname]'");
 			$err=$result;
-			$group
+
 			foreach($request as $key=>$value) {
 				if($value=='on'){
 					//
