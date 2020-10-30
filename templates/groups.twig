@@ -1,0 +1,24 @@
+
+<html>	
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{{ title }}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="phone.css" >	  
+
+</head>
+
+<body>
+{{ include('header.twig') }}
+<div class='ptitle' ><b>Inspect a Group of Rooms</b></div>
+<form name='form2' action='groups.php' method='get'>
+<input type='hidden' name='function' value='{{ calledfunction }}'/>
+	</form>
+{% if err is not empty%}
+<p><b>{{ err }}</b></p>
+{% endif %}
+
+</body>
+</html>
