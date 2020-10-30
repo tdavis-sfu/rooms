@@ -23,7 +23,7 @@
 	$goptions='';
 	if($groups){
 		foreach($groups as $group){
-			$goptions.="<option value='$group[groupname]'>$group[groupname]</option> \r"
+			$goptions.="<option value='$group[groupname]'>$group[groupname]</option> \r";
 		}
 	}
 	
