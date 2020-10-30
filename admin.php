@@ -1,7 +1,7 @@
 <?php
 	require_once('includes/global.inc.php');
 	global $configInfo; 
-//
+//test
 	global $db;
 	
 	//Check if they are authorized
