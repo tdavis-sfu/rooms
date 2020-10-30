@@ -121,7 +121,7 @@
 {% if calledfunction=='grouprooms' %}
 <br>Select rooms and scroll to the bottom<br><br>	
 {% endif %}
-<form name='form1' action='manage.php?savegroup' method='get'>
+<form name='form1' action='manage.php' method='get'>
 <table>
 
 	<tr>
@@ -166,6 +166,7 @@ Name for group: <input type='text' name='groupname' />
 <input type='hidden' name='function' value='{{ calledfunction }}' />
 <input type='hidden' name='supervisor' value='{{ supervisor }}' />
 <input type='hidden' name='faculty' value='{{ faculty }}' />
+<input type='hidden' name='savegroup' value='savegroup' />
 </form>
 {% endif %}
 
