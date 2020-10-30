@@ -40,21 +40,21 @@
 				List rooms with approved plans and current inspection status=Failed
 			</td>
 		</tr>
-		<tr>
-		<tr>
-			<td>
-				<button type='button' onclick="javascript: document.form2.function.value='grouprooms'; document.form2.submit();">Group Rooms</button>
-			</td>
-			<td>
-				Group rooms into clusters
-			</td>
-		</tr>
+		
 		<tr>
 			<td>
 				<button type='button' onclick="javascript: document.form2.function.value='listnolink'; document.form2.submit();">No Link</button>
 			</td>
 			<td>
 				List rooms with approved plans but no plan URL
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button type='button' onclick="javascript: document.form2.function.value='grouprooms'; document.form2.submit();">Group Rooms</button>
+			</td>
+			<td>
+				Group rooms into clusters
 			</td>
 		</tr>
 		<tr>
@@ -108,21 +108,21 @@
 {% if calledfunction=='listnolink' %}
 <b>No Links</b>	
 {% endif %}
-{% if calledfunction=='groupedrooms' %}
+{% if calledfunction=='grouprooms' %}
 <b>Grouped Rooms</b>	
 {% endif %}
 {% if calledfunction %}
 {% if count >0 %}
 <font size='-1'>&nbsp;&nbsp;	(# {{ count }}) </font>
 {% endif %}
-{% if calledfunction=='groupedrooms' %}
+{% if calledfunction=='grouprooms' %}
 <br>Select rooms and scroll to the bottom<br><br>	
 {% endif %}
 <form name='form1' action='inspect.php?saveform' method='get'>
 <table>
 
 	<tr>
-		{% if calledfunction=='groupedrooms' %}
+		{% if calledfunction=='grouprooms' %}
 		<th> </th>
 		{% endif %}
 		<th>Building</th><th>Room</th><th>Type</th><th>Cap.</th><th>Supervisor</th><th>Purpose</th>
@@ -135,7 +135,7 @@
 	</tr>
 	{% for room in roomlist %}
 	<tr>
-		{% if calledfunction=='groupedrooms' %}
+		{% if calledfunction=='grouprooms' %}
 		<td><input type='checkbox' name='{{ room.id }}' /></td>
 		{% endif %}
 		<td>{{ room.building_name }}</td><td>
@@ -155,8 +155,10 @@
 	</tr>
 	{% endfor %}
 </table>
+{% if calledfunction=='grouprooms' %}
 <input type='text' name='groupname' />
 <button type='submit'>Save Group</button>
+{% endif %}
 </form>
 {% endif %}
 
