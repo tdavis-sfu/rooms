@@ -52,7 +52,8 @@ SELECT
 	user_room.type_descript as room_type, 
 	user_room.capacity as capacity, 
 	safety_plans.pi as pi, 
-	safety_plans.purpose as purpose
+	safety_plans.purpose as purpose,
+	user_room.id as room_id
 FROM user_room 
 LEFT JOIN `user_building` ON (user_room.building_id=user_building.id) 
 LEFT JOIN inspections ON (user_room.id=inspections.room_id) 
