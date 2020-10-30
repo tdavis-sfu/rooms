@@ -15,7 +15,15 @@
 <div class='ptitle' ><b>Inspect a Group of Rooms</b></div>
 <form name='form2' action='groups.php' method='get'>
 <input type='hidden' name='function' value='{{ calledfunction }}'/>
-	</form>
+
+<select name='group' onchange='javascript:document.form2.submit();'>
+	<option value=''></option>
+	{% autoescape false %}
+	{{ roptions }}
+	{% endautoescape %}
+</select>
+
+</form>
 {% if err is not empty%}
 <p><b>{{ err }}</b></p>
 {% endif %}

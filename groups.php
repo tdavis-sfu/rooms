@@ -18,14 +18,21 @@
 
 	}//any post variables
 	
-	
-	
+	$sql="SELECT DISTINCT groupname FROM groups WHERE 1 ORDER BY groupname";
+	$groups=$db->GetAll($sql);
+	$goptions='';
+	if($groups){
+		foreach($groups as $group){
+			$goptions.="<option value='$group[groupname]'>$group[groupname]</option> \r"
+		}
+	}
 	
 	
 	echo $template->render([
 	'config'=>$configInfo,
 	'pagename'=>'groups',
 	'title'=>'Inspect Groups',
+	'goptions'=>$goptions,
 	'err'=>$err]);
 ?>
   
