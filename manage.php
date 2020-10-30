@@ -22,11 +22,13 @@
 		if($request['groupname'] !=''){
 			//check if group exists
 			$result=$db->Execute("DELETE from groups where groupname='$request[groupname]'");
-			$err=$result;
-
+			//$err=$result;
+			$err='';
 			foreach($request as $key=>$value) {
 				if($value=='on'){
-					//
+					$sql="INSERT INTO groups (groupname,room_id) VALUES ('$request[groupname]','$key')";
+					$result=$db->Execute($sql);
+					$err=$result;
 				}
 			}
 		}
