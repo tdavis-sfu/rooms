@@ -18,8 +18,19 @@
 		if ($request['supervisor']) $active_pi=$request['supervisor']; else $active_pi='';
 	}//any post variables
 	
-	if(isset($request['savegroup'])){
-		$err="SAVED";
+	if(isset($request['savegroup']) && isset($request['groupname'])){
+		if($request['groupname'] !=''){
+			//check if group exists
+			$result=$db->Execute("DELETE from groups where groupname='$request[groupname]'");
+			$err=$result;
+			$group
+			foreach($request as $key=>$value) {
+				if($value=='on'){
+					//
+				}
+			}
+		}
+		
 	}
 
 	$pis=$db->GetAll("SELECT DISTINCT pi as name from safety_plans ORDER BY pi");
