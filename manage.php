@@ -43,6 +43,30 @@
 	if(isset($request['supervisor'])) if($request['supervisor'] != '') $supervisor_call="AND pi='$request[supervisor]'"; else $supervisor_call='';
   
 	if(isset($request['function'])) switch($request['function']) {
+		case 'grouprooms':
+			if ($faculty=='-1') $facultycall=">=1"; else $facultycall="=$faculty" ;
+				$sql="
+SELECT 
+	user_building.name as building_name, 
+	user_room.short_name as room_name, 
+	user_room.type_descript as room_type, 
+	user_room.capacity as capacity, 
+	user_room.id as id,
+	safety_plans.pi as pi, 
+	safety_plans.purpose as purpose
+FROM user_room 
+LEFT JOIN `user_building` ON (user_room.building_id=user_building.id) 
+LEFT JOIN inspections ON (user_room.id=inspections.room_id) 
+LEFT JOIN safety_plans ON (safety_plans.room_id=user_room.id) 
+WHERE 
+	faculty_id$facultycall
+	$supervisor_call
+ORDER BY user_building.name,user_room.short_name";				
+				$roomlist=$db->getAll($sql);
+
+		
+		
+		break;
 		case 'noinspection':
 			if ($faculty=='-1') $facultycall=">=1"; else $facultycall="=$faculty" ;
 				$sql="
