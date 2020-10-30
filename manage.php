@@ -18,6 +18,9 @@
 		if ($request['supervisor']) $active_pi=$request['supervisor']; else $active_pi='';
 	}//any post variables
 	
+	if(isset($request['savegroup'])){
+		printr($request);
+	}
 
 	$pis=$db->GetAll("SELECT DISTINCT pi as name from safety_plans ORDER BY pi");
 	$pi_options="<option value=''></option>\r";
@@ -291,6 +294,8 @@ echo $template->render([
 	'pagename'=>'manage',
 	'title'=>'Manage',
 	'count'=>$count,
+	'faculty'=>$faculty,
+	'supervisor'=>$request['supervisor'],
 	'err'=>$err]);
 ?>
   
