@@ -26,6 +26,7 @@
 			$goptions.="<option value='$group[groupname]'>$group[groupname]</option> \r";
 		}
 	}
+	$err=$goptions;
 	
 	
 	echo $template->render([
