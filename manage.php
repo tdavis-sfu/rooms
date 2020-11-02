@@ -78,8 +78,14 @@ WHERE
 	faculty_id$facultycall
 	$supervisor_call
 ORDER BY user_building.name,user_room.short_name";				
-				$roomlist=$db->getAll($sql);
-
+			$roomlist=$db->getAll($sql);
+			
+			$goptions='';
+			$sql="SELECT * FROM groups WHERE 1 ORDER BY groupname";
+			$groups=$db->GetAll($sql);
+			if($groups) foreach($groups as $group){
+				$goptions.="<option name='$group[id]'>$group[groupname]</option>\r"
+			}
 		
 		
 		break;
@@ -309,6 +315,7 @@ echo $template->render([
 	'count'=>$count,
 	'faculty'=>$faculty,
 	'supervisor'=>$request['supervisor'],
+	'goptions'=>$goptions,
 	'err'=>$err]);
 ?>
   
