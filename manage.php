@@ -93,7 +93,7 @@ ORDER BY user_building.name,user_room.short_name";
 			$sql="SELECT DISTINCT groupname FROM groups WHERE 1 ORDER BY groupname";
 			$groups=$db->GetAll($sql);
 			if($groups) foreach($groups as $group){
-				if($groupname=$group['groupname']) $sel="selected"; else $sel='';
+				if($groupname==$group['groupname']) $sel="selected"; else $sel='';
 				$goptions.="<option value='$group[groupname]' $sel>$group[groupname]</option>\r";
 			}
 		
