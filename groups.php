@@ -3,6 +3,7 @@
 	global $configInfo; 
 
 	global $db;
+	$err='';
 	
 	//Check if they are authorized
 	if($configInfo['can_inspect'] == FALSE) { header("Location: $configInfo[url_root]/unauthorized.html");}
@@ -26,8 +27,7 @@
 			$goptions.="<option value='$group[groupname]'>$group[groupname]</option> \r";
 		}
 	}
-	$err=$goptions;
-	
+		
 	
 	echo $template->render([
 	'config'=>$configInfo,
