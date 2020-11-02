@@ -34,7 +34,12 @@
 		}
 		
 	}
-	
+	if(isset($request['groupform']){
+		$result=$db->GetRow("SELECT * FROM groups WHERE groupname='$request[groupform]'");
+		if($result) $groupname=$request['groupform'];
+		else $groupname='';
+	}
+	else $groupname='';
 	
 
 	$pis=$db->GetAll("SELECT DISTINCT pi as name from safety_plans ORDER BY pi");
@@ -71,11 +76,13 @@ SELECT
 	user_room.capacity as capacity, 
 	safety_plans.pi as pi, 
 	safety_plans.purpose as purpose,
-	user_room.id as room_id
+	user_room.id as room_id,
+	groups.groupname as groupname
 FROM user_room 
 LEFT JOIN `user_building` ON (user_room.building_id=user_building.id) 
 LEFT JOIN inspections ON (user_room.id=inspections.room_id) 
 LEFT JOIN safety_plans ON (safety_plans.room_id=user_room.id) 
+LEFT JOIN groups ON (groups.room_id=user_room.id
 WHERE 
 	faculty_id$facultycall
 	$supervisor_call
