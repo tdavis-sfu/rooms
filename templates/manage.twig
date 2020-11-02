@@ -152,7 +152,7 @@
 	<tr>
 		{% if calledfunction=='grouprooms' %}
 		<td><input type='checkbox' name='{{ room.room_id }}' 
-		{% if room.groupname==groupname and groupname is not '' %} checked {% endif %} /></td>
+		{% if room.groupname==groupname and not groupname == '' %} checked {% endif %} /></td>
 		{% endif %}
 		<td>{{ room.building_name }}</td><td>
 		{% if calledfunction=='listnolink' %}
