@@ -94,7 +94,7 @@
 
 				
 </table>
-</form>
+
 {% if err is not empty%}
 <p><b>{{ err }}</b></p>
 {% endif %}
@@ -119,10 +119,10 @@
 <font size='-1'>&nbsp;&nbsp;	(# {{ count }}) </font>
 {% endif %}
 {% if calledfunction=='grouprooms' %}
-<form name='groupform' action='manage.php' method='get'>
+
 &nbsp;&nbsp;&nbsp;
 
-	<select name='groupform' onchange="javascript: document.groupform.submit();">
+	<select name='groupform' onchange="javascript: document.form2.submit();">
 	<option value=''></option>
 	{% autoescape false %}
 	{{ goptions }}
@@ -130,8 +130,9 @@
 	</select>
 
 <br>Select rooms and scroll to the bottom<br><br>
-</form>	
+
 {% endif %}
+</form>	
 <form name='form1' action='manage.php' method='get'>
 <table>
 
