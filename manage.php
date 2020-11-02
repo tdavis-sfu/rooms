@@ -326,6 +326,7 @@ echo $template->render([
 	'faculty'=>$faculty,
 	'supervisor'=>$request['supervisor'],
 	'goptions'=>$goptions,
+	'groupname'=>$groupname,
 	'err'=>$err]);
 ?>
   
