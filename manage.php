@@ -34,7 +34,7 @@
 		}
 		
 	}
-	if(isset($request['groupform']){
+	if(isset($request['groupform'])){
 		$result=$db->GetRow("SELECT * FROM groups WHERE groupname='$request[groupform]'");
 		if($result) $groupname=$request['groupform'];
 		else $groupname='';
