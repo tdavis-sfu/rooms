@@ -119,6 +119,15 @@
 <font size='-1'>&nbsp;&nbsp;	(# {{ count }}) </font>
 {% endif %}
 {% if calledfunction=='grouprooms' %}
+&nbsp;&nbsp;&nbsp;
+<form name='groupform' action='manage.php' method='get'>
+	<select name='groupform'>
+	<option value=''></option>
+	{% autoescape false %}
+	{{ goptions }}
+	{% endautoescape %}
+	</select>
+</form>
 <br>Select rooms and scroll to the bottom<br><br>	
 {% endif %}
 <form name='form1' action='manage.php' method='get'>
