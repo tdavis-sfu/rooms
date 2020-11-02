@@ -34,6 +34,8 @@
 		}
 		
 	}
+	
+	
 
 	$pis=$db->GetAll("SELECT DISTINCT pi as name from safety_plans ORDER BY pi");
 	$pi_options="<option value=''></option>\r";
@@ -81,10 +83,10 @@ ORDER BY user_building.name,user_room.short_name";
 			$roomlist=$db->getAll($sql);
 			
 			$goptions='';
-			$sql="SELECT * FROM groups WHERE 1 ORDER BY groupname";
+			$sql="SELECT DISTINCT groupname FROM groups WHERE 1 ORDER BY groupname";
 			$groups=$db->GetAll($sql);
 			if($groups) foreach($groups as $group){
-				$goptions.="<option name='$group[id]'>$group[groupname]</option>\r";
+				$goptions.="<option value='$group[groupname]'>$group[groupname]</option>\r";
 			}
 		
 		
