@@ -173,7 +173,7 @@
 </table>
 {% if calledfunction=='grouprooms' %}
 <br>
-Name for group: <input type='text' name='groupname' />
+Name for group: <input type='text' name='groupname' value='{{ groupname }}' />
 <button type='submit'>Save Group</button> (reusing a name overwrites)
 {% endif %}
 <input type='hidden' name='function' value='{{ calledfunction }}' />
