@@ -82,7 +82,7 @@ FROM user_room
 LEFT JOIN `user_building` ON (user_room.building_id=user_building.id) 
 LEFT JOIN inspections ON (user_room.id=inspections.room_id) 
 LEFT JOIN safety_plans ON (safety_plans.room_id=user_room.id) 
-LEFT JOIN groups ON (groups.room_id=user_room.id
+LEFT JOIN groups ON (groups.room_id=user_room.id)
 WHERE 
 	faculty_id$facultycall
 	$supervisor_call
