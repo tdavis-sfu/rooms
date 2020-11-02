@@ -122,7 +122,7 @@
 <form name='groupform' action='manage.php' method='get'>
 &nbsp;&nbsp;&nbsp;
 
-	<select name='groupform'>
+	<select name='groupform' onchange="javascript: document.groupform.submit();">
 	<option value=''></option>
 	{% autoescape false %}
 	{{ goptions }}
