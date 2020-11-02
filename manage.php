@@ -84,7 +84,7 @@ ORDER BY user_building.name,user_room.short_name";
 			$sql="SELECT * FROM groups WHERE 1 ORDER BY groupname";
 			$groups=$db->GetAll($sql);
 			if($groups) foreach($groups as $group){
-				$goptions.="<option name='$group[id]'>$group[groupname]</option>\r"
+				$goptions.="<option name='$group[id]'>$group[groupname]</option>\r";
 			}
 		
 		
