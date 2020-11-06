@@ -285,7 +285,7 @@ ORDER BY user_building.name,user_room.short_name
 			$oneroom['inspectionid']='';
 			$oneroom['thedate']='';
 			$oneroom['outcome']='';
-			$oneroom['inspectme']="<button style='background-color: #4CAF50;' onClick=\"window.location.assign('http://vpr-db13.dc.sfu.ca/rooms/inspect.php?status=new&room_id=$oneroom[room_id]&source=manage&faculty=$faculty')\">Inspect</button>";
+			$oneroom['inspectme']="<button style=\"background-color: #4CAF50;\" onClick='window.location.assign(\"inspect.php?status=new&room_id=$oneroom[room_id]&source=manage&faculty=$faculty\")'>Inspect</button>";
 			
 			$sql="SELECT * from inspections WHERE room_id=$oneroom[room_id] order by inspect_date DESC LIMIT 5";
 			$inspections=$db->getAll($sql);
