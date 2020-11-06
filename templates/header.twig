@@ -7,7 +7,7 @@
 {% if pagename=='groups' %}<b>Groups</b>{% else %}Groups{% endif %}</a></div>
 
 <div >	&nbsp;&nbsp;&nbsp;
-	{% if config.can_admin %}
+	{% if config.can_adminr or config.can_admin %}
 		<a class='headertext' href='manage.php'>
 	{% endif %}
 {% if pagename=='manage' %}<b>Manage</b>{% else %}Manage{% endif %}
