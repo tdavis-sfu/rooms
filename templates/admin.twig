@@ -50,7 +50,8 @@
 		<td colspan='2'>
 			<label for='view'>View:</label><input type='checkbox' id='view' name='view' {% if user.view %}checked{% endif %}/>&nbsp;&nbsp;
 			<label for='view'>Inspect:</label><input type='checkbox' id='inspect' name='inspect' {% if user.inspect %}checked{% endif %}/>&nbsp;&nbsp;
-			<label for='view'>Admin:</label><input type='checkbox' id='admin' name='admin' {% if user.admin %}checked{% endif %}/>
+			<label for='view'>Admin-Read:</label><input type='checkbox' id='admin-r' name='admin-r' {% if user.admin-r %}checked{% endif %}/>&nbsp;&nbsp;
+			<label for='view'>Admin-Full:</label><input type='checkbox' id='admin' name='admin' {% if user.admin %}checked{% endif %}/>&nbsp;&nbsp;
 			
 		</td>
 	</tr>
