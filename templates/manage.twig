@@ -159,12 +159,7 @@
 		{% endif %}
 		<td>{{ room.building_name }}</td><td>
 		{% if calledfunction=='listnolink' %}
-			
-				<a href='{{config.url_root }}/safety.php?room_id={{ room.room_id }}'>
-	
-			{{ room.room_name }}
-
-				</a>
+				<a href='{{config.url_root }}/safety.php?room_id={{ room.room_id }}'>{{ room.room_name }}</a>
 
 		{% else %}
 		{{ room.room_name }}
