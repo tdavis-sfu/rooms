@@ -62,7 +62,7 @@
 					No Inspections
 				{% else %}
 					{% for ins in inspections %}
-						{% if config.can_view %}
+						{% if config.can_adminr %}
 							<a href='{{ config.url_root }}/inspect_view.php?inspect={{ ins.id }}'>
 						{% endif %}
 						{{ ins.inspect_date }}

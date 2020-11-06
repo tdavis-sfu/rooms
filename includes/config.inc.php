@@ -63,7 +63,7 @@ $configInfos["ovpr-www-prod-is-sfu.ca"]["debug"] = true;
 // Global variable $configinfo will be filled with correct info depending on the server name
 
 //  AUTH  SESSION CONFIGURATION
-$sessionConfig["sessionname"] = "mtroyalc_research";	// session name to use. Must contain at least one letter.
+$sessionConfig["sessionname"] = "sfuc_research";	// session name to use. Must contain at least one letter.
 $sessionConfig["sessionexpire"] = 18000; 				// 1800 secs = 30mins
 
 //  AUTH  AVAILABLE METHODS
@@ -83,28 +83,7 @@ $sessionConfig["authmethod"] = "database,ldap,usertable";
 
 $sessionConfig["usertable"]["tdavis"] = "827ccb0eea8a706c4c34a16891f84e7b"; //"c3f3c0b98db003270f05b83495c5b765";
 
-$sessionConfig["usertable"]["testuser1"] = "0d107d09f5bbe40cade3de5c71e9e9b7";
-$sessionConfig["usertable"]["testuser2"] = "0d107d09f5bbe40cade3de5c71e9e9b7";
-$sessionConfig["usertable"]["testuser3"] = "0d107d09f5bbe40cade3de5c71e9e9b7";
-$sessionConfig["usertable"]["testuser4"] = "0d107d09f5bbe40cade3de5c71e9e9b7";
-$sessionConfig["usertable"]["testuser5"] = "0d107d09f5bbe40cade3de5c71e9e9b7";
-$sessionConfig["usertable"]["testuser6"] = "0d107d09f5bbe40cade3de5c71e9e9b7";
-$sessionConfig["usertable"]["dean"] = "0d107d09f5bbe40cade3de5c71e9e9b7";
-$sessionConfig["usertable"]["chair"] = "0d107d09f5bbe40cade3de5c71e9e9b7";
 
-
-//  AUTH  DATABASE CONFIGURATION
-$sessionConfig["dbtable"] = "users";                // table to use to check the user/pass
-$sessionConfig["dbusernamefield"] = "username";     // field containing the username
-$sessionConfig["dbpassfield"] = "password2";        // field containing the pasword (MD5 hash)
-// NOTE: for security reasons all input username and password will be cleaned and will allow only the following characters
-// for username: a-z A-Z 0-9 @ and _
-// for password: a-z A-Z 0-9 ! @ # $ % ^ & * ( ) _ and " " (blank space)
-
-// This is done to avoid SQL injection and other possible attacks
-
-//  AUTH  LDAP CONFIGURATION
-// ldap is externally configured in the mrclib.php file
 
 // Rows per page for paginated listing
 $rowsPerPage=20;
@@ -121,19 +100,7 @@ if (strpos($_SERVER['HTTP_HOST'],':') != 0) {
 if (strstr($server,"www.")) {
     $server = substr($server,4);
 }
-            // 20090224 CSN is this really needed?
-            /*
-            if ($server == "localhost") {	// used on offline testing (localhost installs)
-                $server2 = strtolower( gethostbyaddr (gethostbyname ($_SERVER["SERVER_NAME"])));
-                //echo "[$server-$server2]";
-                switch ($server2) {
-                    case "localhost": //temp, maldito linux no me reconoce el hostname de mi lap
-                    default:
-                        $server="localhost";
-                        break;	// hostname no reconocido
-                }
-            }
-            */
+            
 if (isset($configInfos[$server])) {
     $configInfo = $configInfos[$server];
 } else {

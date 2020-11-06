@@ -73,6 +73,7 @@ if($authUser) {
 	$configInfo['can_view']=$authUser['view'];
 	$configInfo['can_inspect']=$authUser['inspect'];
 	$configInfo['can_admin']=$authUser['admin'];
+	$configInfo['can_adminr']=$authUser['adminr'];
 }
 	
 //else phpCAS::logoutWithUrl("$configInfo[url_root]/unauthorized.html");

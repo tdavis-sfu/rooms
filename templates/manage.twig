@@ -156,7 +156,13 @@
 		{% endif %}
 		<td>{{ room.building_name }}</td><td>
 		{% if calledfunction=='listnolink' %}
-		<a href='{{config.url_root }}/safety.php?room_id={{ room.room_id }}'>{{ room.room_name }}</a>
+			{% if config.can_adminr %}
+				<a href='{{config.url_root }}/safety.php?room_id={{ room.room_id }}'>
+			{% endif %}
+			{{ room.room_name }}
+			{% if config.can_adminr %}
+				</a>
+			{% endif %}
 		{% else %}
 		{{ room.room_name }}
 		{% endif %}
