@@ -285,7 +285,7 @@ ORDER BY user_building.name,user_room.short_name
 			$oneroom['inspectionid']='';
 			$oneroom['thedate']='';
 			$oneroom['outcome']='';
-			$oneroom['inspectme']="<a href='inspect.php?status=new&room_id=$oneroom[room_id]&source=manage&faculty=$faculty'>Inspect</button>";
+			$oneroom['inspectme']="<a href='inspect.php?status=new&room_id=$oneroom[room_id]&source=manage&faculty=$faculty'>Inspect</a>";
 			
 			$sql="SELECT * from inspections WHERE room_id=$oneroom[room_id] order by inspect_date DESC LIMIT 5";
 			$inspections=$db->getAll($sql);
@@ -298,7 +298,7 @@ ORDER BY user_building.name,user_room.short_name
 					$subline['inspectionid']=$insp['id'];
 					$subline['thedate']=$insp['inspect_date'];
 					$subline['outcome']=(0 == $insp['status']) ? 'Non-compliant' : 'Compliant';
-					$subline['inspectme']= "<button style='background-color: #AAAAAA;' onClick='window.location.href=\"inspect_view.php?&inspect=$insp[id]\"'>View</button>";
+					$subline['inspectme']= "<a href='inspect_view.php?&inspect=$insp[id]'>View</a>";
 					$roomlist[]=$subline;
 				}//foreach
 			}
