@@ -32,7 +32,7 @@
 		if(isset($request['view'])) $view=TRUE; else $view=0;
 		if(isset($request['inspect'])) $inspect=TRUE; else $inspect=0;
 		if(isset($request['admin'])) $admin=TRUE; else $admin=0;
-		if(isset($request['admin-r'])) $adminr=TRUE; else $adminr=0;
+		if(isset($request['adminr'])) $adminr=TRUE; else $adminr=0;
 		
 		if(isset($request['id'])){
 			$sql="UPDATE system_users SET
@@ -42,7 +42,7 @@
 					view='$view',
 					inspect='$inspect',
 					admin='$admin',
-					admin-r='$adminr'
+					adminr='$adminr'
 				WHERE id='$request[id]'";
 			if(!$db->Execute($sql)) $err='Error saving';
 		}
