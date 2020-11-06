@@ -118,6 +118,7 @@
 {% if count >0 %}
 <font size='-1'>&nbsp;&nbsp;	(# {{ count }}) </font>
 {% endif %}
+
 {% if calledfunction=='grouprooms' %}
 
 &nbsp;&nbsp;&nbsp; Edit a group:
@@ -132,6 +133,8 @@
 <br><br>Select rooms and scroll to the bottom<br><br>
 
 {% endif %}
+
+
 </form>	
 <form name='form1' action='manage.php' method='get'>
 <table>
@@ -156,13 +159,13 @@
 		{% endif %}
 		<td>{{ room.building_name }}</td><td>
 		{% if calledfunction=='listnolink' %}
-			{% if config.can_adminr %}
+			
 				<a href='{{config.url_root }}/safety.php?room_id={{ room.room_id }}'>
-			{% endif %}
+	
 			{{ room.room_name }}
-			{% if config.can_adminr %}
+
 				</a>
-			{% endif %}
+
 		{% else %}
 		{{ room.room_name }}
 		{% endif %}
