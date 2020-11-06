@@ -5,7 +5,7 @@
 	global $db;
 	
 	//Check if they are authorized
-	if($configInfo['can_admin'] == FALSE || $configInfo['can_adminr'] == FALSE) { header("Location: $configInfo[url_root]/unauthorized.html");}
+	if($configInfo['can_admin'] == FALSE && $configInfo['can_adminr'] == FALSE) { header("Location: $configInfo[url_root]/unauthorized.html");}
 	
 	$template = $twig->load('manage.twig');
 	

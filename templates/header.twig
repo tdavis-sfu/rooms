@@ -11,7 +11,7 @@
 		<a class='headertext' href='manage.php'>
 	{% endif %}
 {% if pagename=='manage' %}<b>Manage</b>{% else %}Manage{% endif %}
-{% if config.can_admin %}</a>{% endif %}
+{% if config.can_admin or config.can_adminr %}</a>{% endif %}
 </div>
 <div >&nbsp;&nbsp;&nbsp;
 	{% if config.can_admin %}
