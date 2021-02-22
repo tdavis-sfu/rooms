@@ -34,6 +34,13 @@
 		}
 		
 	}
+	if(isset($request['groupdel'])) if($request['groupdel'] != '') {
+			
+		$result=$db->Execute("DELETE FROM groups WHERE groupname='$request[groupdel]'");
+		$groupname='';
+	}
+	
+	
 	if(isset($request['groupform'])) if($request['groupform'] != '') {
 		$result=$db->GetRow("SELECT * FROM groups WHERE groupname='$request[groupform]'");
 		if($result) $groupname=$request['groupform'];
@@ -90,12 +97,13 @@ WHERE
 ORDER BY user_building.name,user_room.short_name";				
 			$roomlist=$db->getAll($sql);
 			
-			$goptions='';
+			$goptions='';$goptions2='';
 			$sql="SELECT DISTINCT groupname FROM groups WHERE 1 ORDER BY groupname";
 			$groups=$db->GetAll($sql);
 			if($groups) foreach($groups as $group){
 				if($groupname==$group['groupname']) $sel="selected"; else $sel='';
 				$goptions.="<option value='$group[groupname]' $sel>$group[groupname]</option>\r";
+				$goptions2.="<option value='$group[groupname]'>$group[groupname]</option>\r";
 			}
 		
 		
@@ -327,6 +335,7 @@ echo $template->render([
 	'faculty'=>$faculty,
 	'supervisor'=>$request['supervisor'],
 	'goptions'=>$goptions,
+	'goptions2'=>$goptions2,
 	'groupname'=>$groupname,
 	'err'=>$err]);
 ?>

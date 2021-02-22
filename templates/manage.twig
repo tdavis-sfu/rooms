@@ -129,6 +129,15 @@
 	{{ goptions }}
 	{% endautoescape %}
 	</select>
+	
+&nbsp;&nbsp;&nbsp; Delete a group:
+
+	<select name='groupdel' onchange="javascript: document.form2.submit();">
+	<option value=''></option>
+	{% autoescape false %}
+	{{ goptions2 }}
+	{% endautoescape %}
+	</select>
 
 <br><br>Select rooms and scroll to the bottom<br><br>
 
