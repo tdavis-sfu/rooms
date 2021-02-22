@@ -13,18 +13,20 @@
 <body>
 {{ include('header.twig') }}
 <div class='ptitle' ><b>Inspect a Group of Rooms</b></div>
-<form name='form2' action='groups.php' method='get'>
-<input type='hidden' name='function' value='{{ calledfunction }}'/>
+<form name='inspectme' action='inspectgroup.php' id='inspectme' method='GET'>
 
-<select name='group' onchange='javascript:document.form2.submit();'>
+<select name='group_id'>
 	<option value=''></option>
 	{% autoescape false %}
 	{{ goptions }}
 	{% endautoescape %}
-</select>
-
+</select><br><br>
+<input type='hidden' name='status' value='new'/> 
+<table><tr><td>
+<button type='submit' form='inspectme' value='Submit'><b>Inspect</b></button>
+</td></tr></table>
 </form>
-{% if err is not empty%}
+{% if err is not empty %}
 <p><b>{{ err }}</b></p>
 {% endif %}
 

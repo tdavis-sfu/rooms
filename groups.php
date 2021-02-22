@@ -33,6 +33,7 @@
 	'config'=>$configInfo,
 	'pagename'=>'groups',
 	'title'=>'Inspect Groups',
+	'calledfunction'=>'inspect',
 	'goptions'=>$goptions,
 	'err'=>$err]);
 ?>

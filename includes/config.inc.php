@@ -9,11 +9,11 @@ $configInfos["localhost"]["dbdriver"] = 'mysqli';
 $configInfos["localhost"]["dbname"] = 'roombooking';
 $configInfos["localhost"]["peardir"] = '/usr/lib/php';
 $configInfos["localhost"]["debug"] = false;
-$configInfos["localhost"]["url_root"] = 'http://localhost';
-$configInfos["localhost"]["file_root"] = '/Users/tjdavis/sfuvault/Sites/contracts';
-$configInfos["localhost"]["vendor"] = '/Users/tjdavis/sfuvault/Sites/contracts/vendor';
-$configInfos["localhost"]["templates"] = '/Users/tjdavis/sfuvault/Sites/contracts/templates';
-$configInfos["localhost"]["phpcas_path"] = '/Users/tjdavis/sfuvault/Sites/contracts/vendor/jasig/phpcas';
+$configInfos["localhost"]["url_root"] = 'http://localhost/rooms';
+$configInfos["localhost"]["file_root"] = '/Users/tjdavis/OneDrive - Simon Fraser University (1sfu)/Sites/rooms';
+$configInfos["localhost"]["vendor"] = '/Users/tjdavis/OneDrive - Simon Fraser University (1sfu)/Sites/rooms/vendor';
+$configInfos["localhost"]["templates"] = '/Users/tjdavis/OneDrive - Simon Fraser University (1sfu)/Sites/rooms/templates';
+$configInfos["localhost"]["phpcas_path"] = '/Users/tjdavis/OneDrive - Simon Fraser University (1sfu)/Sites/rooms/vendor/jasig/phpcas';
 
 $configInfos["vpr-db13.dc.sfu.ca"]["host"] = 'vpr-db13.dc.sfu.ca';
 //$configInfos["vpr-db13.dc.sfu.ca"]["user"] = 'trevormon';
