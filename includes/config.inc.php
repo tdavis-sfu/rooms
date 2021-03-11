@@ -30,20 +30,20 @@ $configInfos["vpr-db13.dc.sfu.ca"]["vendor"] = '/var/www/html/rooms/vendor';
 $configInfos["vpr-db13.dc.sfu.ca"]["templates"] = '/var/www/html/rooms/templates';
 $configInfos["vpr-db13.dc.sfu.ca"]["phpcas_path"] = '/var/www/html/rooms/vendor/jasig/phpcas';
 
-$configInfos["vpr-db13.dc.sfu.ca"]["host"] = 'sp.dc.sfu.ca';
+$configInfos["sp.dc.sfu.ca"]["host"] = 'sp.dc.sfu.ca';
 //$configInfos["vpr-db13.dc.sfu.ca"]["user"] = 'trevormon';
 //$configInfos["vpr-db13.dc.sfu.ca"]["pass"] = 'ilike!pasta&pizza33%';
-$configInfos["vpr-db13.dc.sfu.ca"]["user"] = 'roombooking';
-$configInfos["vpr-db13.dc.sfu.ca"]["pass"] = 'rilincetc';
-$configInfos["vpr-db13.dc.sfu.ca"]["dbdriver"] = 'mysqli';
-$configInfos["vpr-db13.dc.sfu.ca"]["dbname"] = 'roombooking';
-$configInfos["vpr-db13.dc.sfu.ca"]["peardir"] = '/usr/lib/php';
-$configInfos["vpr-db13.dc.sfu.ca"]["debug"] = false;
-$configInfos["vpr-db13.dc.sfu.ca"]["url_root"] = 'http://vpr-db13.dc.sfu.ca/rooms';
-$configInfos["vpr-db13.dc.sfu.ca"]["file_root"] = '/var/www/html/rooms';
-$configInfos["vpr-db13.dc.sfu.ca"]["vendor"] = '/var/www/html/rooms/vendor';
-$configInfos["vpr-db13.dc.sfu.ca"]["templates"] = '/var/www/html/rooms/templates';
-$configInfos["vpr-db13.dc.sfu.ca"]["phpcas_path"] = '/var/www/html/rooms/vendor/jasig/phpcas';
+$configInfos["sp.dc.sfu.ca"]["user"] = 'roombooking';
+$configInfos["sp.dc.sfu.ca"]["pass"] = 'rilincetc';
+$configInfos["sp.dc.sfu.ca"]["dbdriver"] = 'mysqli';
+$configInfos["sp.dc.sfu.ca"]["dbname"] = 'roombooking';
+$configInfos["sp.dc.sfu.ca"]["peardir"] = '/usr/lib/php';
+$configInfos["sp.dc.sfu.ca"]["debug"] = false;
+$configInfos["sp.dc.sfu.ca"]["url_root"] = 'http://vpr-db13.dc.sfu.ca/rooms';
+$configInfos["sp.dc.sfu.ca"]["file_root"] = '/var/www/html/rooms';
+$configInfos["sp.dc.sfu.ca"]["vendor"] = '/var/www/html/rooms/vendor';
+$configInfos["sp.dc.sfu.ca"]["templates"] = '/var/www/html/rooms/templates';
+$configInfos["sp.dc.sfu.ca"]["phpcas_path"] = '/var/www/html/rooms/vendor/jasig/phpcas';
 
 $cas_host = 'cas.sfu.ca';
 
