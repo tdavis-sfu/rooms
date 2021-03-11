@@ -61,11 +61,11 @@ phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
 phpCAS::setNoCasServerValidation();
 
 // force CAS authentication
-//phpCAS::forceAuthentication();
+phpCAS::forceAuthentication();
 
-//$user=phpCAS::getUser();
+$user=phpCAS::getUser();
 $configInfo['user']=$user;
-$configInfo['user']='tjdavis';
+//$configInfo['user']='tjdavis';
 
 $authUser=$db->GetRow("SELECT * FROM `system_users` WHERE compid='$user'");
 
@@ -77,7 +77,7 @@ if($authUser) {
 	$configInfo['can_adminr']=$authUser['adminr'];
 }
 	
-//else phpCAS::logoutWithUrl("$configInfo[url_root]/unauthorized.html");
+else phpCAS::logoutWithUrl("$configInfo[url_root]/unauthorized.html");
 
 /**
 * @desc Configurates the session and starts it
