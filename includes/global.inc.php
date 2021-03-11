@@ -79,7 +79,7 @@ if($authUser) {
 	
 //else phpCAS::logoutWithUrl("$configInfo[url_root]/unauthorized.html");
 
-printR($_SERVER);
+//printR($_SERVER);
 /**
 * @desc Configurates the session and starts it
 * @return void
