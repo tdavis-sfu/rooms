@@ -44,8 +44,8 @@ $configInfos["sp.dc.sfu.ca"]["file_root"] = '/var/www/html/rooms';
 $configInfos["sp.dc.sfu.ca"]["vendor"] = '/var/www/html/rooms/vendor';
 $configInfos["sp.dc.sfu.ca"]["templates"] = '/var/www/html/rooms/templates';
 $configInfos["sp.dc.sfu.ca"]["phpcas_path"] = '/var/www/html/rooms/vendor/jasig/phpcas';
-$configInfos["sp.dc.sfu.ca"]["serverport"] = '443';
-$configInfos["sp.dc.sfu.ca"]["request_scheme"] = 'https';
+//$configInfos["sp.dc.sfu.ca"]["serverport"] = '443';
+$configInfos["sp.dc.sfu.ca"]["https"] = 'https';
 
 $cas_host = 'cas.sfu.ca';
 
@@ -126,8 +126,8 @@ if (isset($configInfos[$server])) {
 
 // set up default settings
 
-if(isset($configInfo['serverport'])) $_SERVER['SERVER_PORT']=$configInfo['serverport'];
-if(isset($configInfo['request_scheme'])) $_SERVER['REQUEST_SCHEME']=$configInfo['request_scheme'];
+//if(isset($configInfo['serverport'])) $_SERVER['SERVER_PORT']=$configInfo['serverport'];
+if(isset($configInfo['https'])) $_SERVER['HTTPS']='on';
 
 if(!isset($configInfo["debug"])) {
     $configInfo["debug"] .= false;
