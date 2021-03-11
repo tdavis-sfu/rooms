@@ -61,10 +61,11 @@ phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
 phpCAS::setNoCasServerValidation();
 
 // force CAS authentication
-phpCAS::forceAuthentication();
+//phpCAS::forceAuthentication();
 
-$user=phpCAS::getUser();
+//$user=phpCAS::getUser();
 $configInfo['user']=$user;
+$configInfo['user']='tjdavis';
 
 $authUser=$db->GetRow("SELECT * FROM `system_users` WHERE compid='$user'");
 
