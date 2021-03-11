@@ -51,7 +51,7 @@ $loader = new \Twig\Loader\FilesystemLoader("$configInfo[templates]");
 $twig = new \Twig\Environment($loader, []);
 
 require_once $configInfo["phpcas_path"] . '/CAS.php';
-phpCAS::setDebug('/tmp/phpcas.log');
+phpCAS::setDebug();
 phpCAS::setVerbose(true);
 
 phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
@@ -77,7 +77,7 @@ if($authUser) {
 	$configInfo['can_adminr']=$authUser['adminr'];
 }
 	
-else phpCAS::logoutWithUrl("$configInfo[url_root]/unauthorized.html");
+//else phpCAS::logoutWithUrl("$configInfo[url_root]/unauthorized.html");
 
 printR($_SERVER);
 /**
