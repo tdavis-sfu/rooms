@@ -52,7 +52,7 @@
 			<tr><td>Description:</td><td>{{roominfo.std_descript }}</td></tr>
 			<tr><td>Type:</td><td>{{ roominfo.type_descript }}</td></tr>
 			<tr><td>Plan Status:</td><td>
-			<b>{{ safety }}</b>
+
 				{% if safety is empty %}
 				<font color='red'>No Plan</font>
 				{% elseif safety.plan is empty %}
