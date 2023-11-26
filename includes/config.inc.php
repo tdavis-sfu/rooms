@@ -48,20 +48,20 @@ $configInfos["sp.dc.sfu.ca"]["serverport"] = '443';
 $configInfos["sp.dc.sfu.ca"]["https"] = 'https';
 
 //Digital Ocean
-$configInfos["sfuro.ca"]["host"] = '127.0.0.1';
+$configInfos["rooms.sfuro.ca"]["host"] = '127.0.0.1';
 //$configInfos["sp.dc.sfu.ca"]["user"] = 'trevormon';
 //$configInfos["sp.dc.sfu.ca"]["pass"] = 'ilike!pasta&pizza33%';
-$configInfos["sfuro.ca"]["user"] = 'roombooking';
-$configInfos["sfuro.ca"]["pass"] = 'rilincetc';
-$configInfos["sfuro.ca"]["dbdriver"] = 'mysqli';
-$configInfos["sfuro.ca"]["dbname"] = 'roombooking';
-$configInfos["sfuro.ca"]["peardir"] = '/usr/lib/php';
-$configInfos["sfuro.ca"]["debug"] = false;
-$configInfos["sfuro.ca"]["url_root"] = 'https://rooms.sfuro.ca/';
-$configInfos["sfuro.ca"]["file_root"] = '/var/www/rooms/public_html';
-$configInfos["sfuro.ca"]["vendor"] = '/var/www/rooms/public_html/vendor';
-$configInfos["sfuro.ca"]["templates"] = '/var/www/rooms/public_html/templates';
-$configInfos["sfuro.ca"]["phpcas_path"] = '/var/www/rooms/public_html/vendor/jasig/phpcas';
+$configInfos["rooms.sfuro.ca"]["user"] = 'roombooking';
+$configInfos["rooms.sfuro.ca"]["pass"] = 'rilincetc';
+$configInfos["rooms.sfuro.ca"]["dbdriver"] = 'mysqli';
+$configInfos["rooms.sfuro.ca"]["dbname"] = 'roombooking';
+$configInfos["rooms.sfuro.ca"]["peardir"] = '/usr/lib/php';
+$configInfos["rooms.sfuro.ca"]["debug"] = false;
+$configInfos["rooms.sfuro.ca"]["url_root"] = 'https://rooms.sfuro.ca/';
+$configInfos["rooms.sfuro.ca"]["file_root"] = '/var/www/rooms';
+$configInfos["rooms.sfuro.ca"]["vendor"] = '/var/www/rooms/vendor';
+$configInfos["rooms.sfuro.ca"]["templates"] = '/var/www/rooms/templates';
+$configInfos["rooms.sfuro.ca"]["phpcas_path"] = '/var/www/rooms/vendor/jasig/phpcas';
 
 $cas_host = 'cas.sfu.ca';
 
