@@ -7,7 +7,7 @@ $configInfos["localhost"]["user"] = 'roombooking';
 $configInfos["localhost"]["pass"] = 'rilinc';
 $configInfos["localhost"]["dbdriver"] = 'mysqli';
 $configInfos["localhost"]["dbname"] = 'roombooking';
-$configInfos["localhost"]["peardir"] = '/usr/lib/php';
+$configInfos["localhost"]["peardir"] = '/usr/lib/php'; 
 $configInfos["localhost"]["debug"] = false;
 $configInfos["localhost"]["url_root"] = 'http://localhost/rooms';
 $configInfos["localhost"]["file_root"] = '/Users/tjdavis/OneDrive - Simon Fraser University (1sfu)/Sites/rooms';
@@ -46,6 +46,22 @@ $configInfos["sp.dc.sfu.ca"]["templates"] = '/var/www/html/rooms/templates';
 $configInfos["sp.dc.sfu.ca"]["phpcas_path"] = '/var/www/html/rooms/vendor/jasig/phpcas';
 $configInfos["sp.dc.sfu.ca"]["serverport"] = '443';
 $configInfos["sp.dc.sfu.ca"]["https"] = 'https';
+
+//Digital Ocean
+$configInfos["sfuro.ca"]["host"] = '127.0.0.1';
+//$configInfos["sp.dc.sfu.ca"]["user"] = 'trevormon';
+//$configInfos["sp.dc.sfu.ca"]["pass"] = 'ilike!pasta&pizza33%';
+$configInfos["sfuro.ca"]["user"] = 'roombooking';
+$configInfos["sfuro.ca"]["pass"] = 'rilincetc';
+$configInfos["sfuro.ca"]["dbdriver"] = 'mysqli';
+$configInfos["sfuro.ca"]["dbname"] = 'roombooking';
+$configInfos["sfuro.ca"]["peardir"] = '/usr/lib/php';
+$configInfos["sfuro.ca"]["debug"] = false;
+$configInfos["sfuro.ca"]["url_root"] = 'https://rooms.sfuro.ca/';
+$configInfos["sfuro.ca"]["file_root"] = '/var/www/rooms/public_html';
+$configInfos["sfuro.ca"]["vendor"] = '/var/www/rooms/public_html/vendor';
+$configInfos["sfuro.ca"]["templates"] = '/var/www/rooms/public_html/templates';
+$configInfos["sfuro.ca"]["phpcas_path"] = '/var/www/rooms/public_html/vendor/jasig/phpcas';
 
 $cas_host = 'cas.sfu.ca';
 
